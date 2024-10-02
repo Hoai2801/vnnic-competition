@@ -12,32 +12,37 @@ const SkeletonProps: React.FC<ImageComponentProps> = ({
 }) => {
   const [isLoading, setIsLoading] = useState(true);
   const classNames = additionalClassNames || "";
-  const [imageHeight, setImageHeight] = useState(0);
-  const imageRef = useRef<HTMLImageElement>(null);
+  const [height, setHeight] = useState(0);
+  const imgRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
     const img = new Image();
     img.src = src;
     img.onload = () => setIsLoading(false);
 
-    if (imageRef.current) {
-      setImageHeight(imageRef.current.clientHeight);
-    } else {
-      img.addEventListener("load", () => {
-        if (imageRef.current) {
-          setImageHeight(imageRef.current.clientHeight);
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && entry.target.complete) {
+          setHeight(entry.target.clientHeight);
+          observer.unobserve(entry.target);
         }
       });
-    }
+    });
+
+    if (imgRef.current) observer.observe(imgRef.current);
+
+    return () => {
+      if (observer && imgRef.current) observer.unobserve(imgRef.current);
+    };
   }, [src]);
 
   return (
     <>
       <Skeleton
-        className={`${classNames} absolute z-10 transition-opacity ${!isLoading ? "hidden opacity-0" : "opacity-100"}`}
-        height={imageHeight}
+        className={`${classNames} ${!isLoading ? "hidden opacity-0" : "opacity-100"}`}
+        height={height}
       />
-      <img ref={imageRef} src={src} alt="" className={`${classNames} w-full`} />
+      <img ref={imgRef} src={src} alt="" className={`${classNames} w-full`} />
     </>
   );
 };

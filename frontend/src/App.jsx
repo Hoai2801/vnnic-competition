@@ -1,7 +1,7 @@
 import { lazy, Suspense, useEffect } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
+import Transition from "./components/common/Transition";
 import Layout from "./components/layout/Layout";
-import Transition from "./components/ui/Transition";
 
 const Home = lazy(() => import("./pages/Home"));
 const Notfound = lazy(() => import("./pages/notfound/Notfound"));

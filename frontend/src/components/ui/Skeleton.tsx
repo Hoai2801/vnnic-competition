@@ -16,7 +16,7 @@ const Skeleton: React.FC<SkeletonProps> = ({
 
   return (
     <div
-      className={`w-${width} ${classNames} h-[440px] animate-pulse bg-[#ccc]`}
+      className={`w-${width} ${classNames} h-[${height}px] absolute z-10 animate-pulse bg-[#ccc] transition-opacity`}
     />
   );
 };

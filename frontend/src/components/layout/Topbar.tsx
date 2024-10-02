@@ -5,13 +5,20 @@ import SkeletonProps from "../ui/SkeletonProps";
 export default function Topbar() {
   return (
     <>
-      <div className="flex w-full items-center justify-between gap-4 border-b px-4">
+      <div className="flex w-full items-center justify-between gap-4 border-b px-4 py-2">
         <div className="flex items-center gap-3">
-          <img
-            src="https://vtcnews.vn/Content/pc/theme/images/logo.png?v=1209"
-            alt=""
-            className="h-[60px]"
-          />
+          <div className="flex gap-1">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/vi/0/09/Huy_Hi%E1%BB%87u_%C4%90o%C3%A0n.png"
+              alt=""
+              className="h-[50px]"
+            />
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/f/fa/LogoGDU.jpg"
+              alt=""
+              className="h-[45px]"
+            />
+          </div>
           <p className="text-sm">
             {new Intl.DateTimeFormat("vi-VN", {
               weekday: "long",
@@ -22,8 +29,6 @@ export default function Topbar() {
           </p>
         </div>
         <div className="flex items-center gap-2">
-          <p className="border-r px-2">bla bla</p>
-          <p className="border-r px-2">bla bla</p>
           <div className="flex items-center rounded-md">
             <input
               type="text"
@@ -47,7 +52,7 @@ export default function Topbar() {
               </svg>
             </button>
             <Link to={"/login"}>
-              <button className="ml-4 rounded-md bg-gray-300 px-3 py-1 transition-colors hover:bg-gray-400 active:bg-gray-300">
+              <button className="ml-4 rounded-md bg-sky-500 px-3 py-2 text-sm text-white transition-colors hover:bg-sky-600">
                 Đăng nhập
               </button>
             </Link>
