@@ -18,7 +18,7 @@ const Transition: React.FC<TransitionProps> = ({ children }) => {
       animate="enter"
       exit="exit"
       variants={variants}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.3 }}
     >
       {children}
     </motion.div>

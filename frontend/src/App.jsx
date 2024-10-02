@@ -1,10 +1,10 @@
 import { lazy, Suspense, useEffect } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
-import Layout from "./components/Layout";
-import Transition from "./components/Transition";
+import Layout from "./components/layout/Layout";
+import Transition from "./components/ui/Transition";
 
 const Home = lazy(() => import("./pages/Home"));
-const Notfound = lazy(() => import("./pages/Notfound"));
+const Notfound = lazy(() => import("./pages/notfound/Notfound"));
 const Login = lazy(() => import("./pages/auth/Login"));
 
 export default function App() {
@@ -22,13 +22,32 @@ export default function App() {
         <Routes location={location} key={location.pathname}>
           <Route
             index
-            element={<Transition>{<Layout>{<Home />}</Layout>}</Transition>}
+            element={
+              <Transition>
+                <Layout>
+                  <Home />
+                </Layout>
+              </Transition>
+            }
           />
           <Route
             path="/login"
-            element={<Transition>{<Layout>{<Login />}</Layout>}</Transition>}
+            element={
+              <Transition>
+                <Layout>
+                  <Login />
+                </Layout>
+              </Transition>
+            }
+          />{" "}
+          <Route
+            path="*"
+            element={
+              <Transition>
+                <Notfound />
+              </Transition>
+            }
           />
-          <Route path="*" element={<Transition>{<Notfound />}</Transition>} />
         </Routes>
       </Suspense>
     </>
