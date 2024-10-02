@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 type BackButtonProps = {
@@ -6,7 +6,7 @@ type BackButtonProps = {
   className?: string;
 };
 
-const BackButton: FC<BackButtonProps> = ({
+const BackButton: React.FC<BackButtonProps> = ({
   text: additionalText,
   className: additionalClassNames,
 }) => {

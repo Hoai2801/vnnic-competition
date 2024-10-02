@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React from "react";
 import styles from "./Anchor.module.css";
 
 type AnchorProps = {
@@ -7,7 +7,7 @@ type AnchorProps = {
   className?: string;
 };
 
-const Anchor: FC<AnchorProps> = ({
+const Anchor: React.FC<AnchorProps> = ({
   href: additonalHref,
   text,
   className: additionalClassNames,

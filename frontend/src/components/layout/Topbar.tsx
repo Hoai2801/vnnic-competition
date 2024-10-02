@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import SkeletonProps from "../ui/SkeletonProps";
 
 export default function Topbar() {
   return (
@@ -54,9 +55,8 @@ export default function Topbar() {
         </div>
       </div>
       <div className="flex w-full justify-center py-4">
-        <img
+        <SkeletonProps
           src="https://scontent.fsgn19-1.fna.fbcdn.net/v/t39.30808-6/461340984_925343789628003_5559711756639599007_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeGmYMQYlA9cPGQk2majVgyQ2FuOTn8nE8XYW45OfycTxeYtzFjBQ3WwrvQHWvFPrmcOiDHpnn7mpKLiB69l92u_&_nc_ohc=XDSNj0JvjssQ7kNvgGqjgwV&_nc_ht=scontent.fsgn19-1.fna&_nc_gid=AmLAf32CfLUQcR3b6x7x4dK&oh=00_AYD4N2lLbZ6lw8uwnMpGaDwFRfHog3GyDDO2JZHUQQutgA&oe=6701BE71"
-          alt=""
           className="max-w-[1170px]"
         />
       </div>
