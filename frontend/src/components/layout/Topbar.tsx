@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Topbar() {
   return (
@@ -44,9 +45,11 @@ export default function Topbar() {
                 />
               </svg>
             </button>
-            <button className="ml-4 rounded-md bg-gray-300 px-3 py-1 transition-colors hover:bg-gray-400 active:bg-gray-300">
-              Đăng nhập
-            </button>
+            <Link to={"/login"}>
+              <button className="ml-4 rounded-md bg-gray-300 px-3 py-1 transition-colors hover:bg-gray-400 active:bg-gray-300">
+                Đăng nhập
+              </button>
+            </Link>
           </div>
         </div>
       </div>

@@ -34,12 +34,10 @@ export default function App() {
             path="/login"
             element={
               <Transition>
-                <Layout>
-                  <Login />
-                </Layout>
+                <Login />
               </Transition>
             }
-          />{" "}
+          />
           <Route
             path="*"
             element={
