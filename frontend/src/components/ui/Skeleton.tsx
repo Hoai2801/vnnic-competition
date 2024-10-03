@@ -1,23 +1,24 @@
 import React from "react";
 
 type SkeletonProps = {
-  width?: string;
-  height: number;
+  width?: number;
+  height?: number;
   className?: string;
 };
 
 const Skeleton: React.FC<SkeletonProps> = ({
-  width: additionalWidth,
+  width,
   height,
   className: additionalClassNames,
 }) => {
-  const width = additionalWidth || "full";
   const classNames = additionalClassNames || "";
+  const heightStyle = height ? `h-[${height}px]` : "h-auto";
+  const widthStyle = width ? `w-[${width}px]` : "w-full";
 
   return (
     <div
-      className={`w-${width} ${classNames} h-[${height}px] absolute z-10 animate-pulse bg-[#ccc] transition-opacity`}
-    />
+      className={`${widthStyle} ${classNames} ${heightStyle} animate-pulse bg-gray-300 transition-opacity`}
+    ></div>
   );
 };
 

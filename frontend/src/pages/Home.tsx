@@ -1,5 +1,13 @@
 import React from "react";
+import BackToTop from "../components/ui/BackToTop";
 
 export default function Home() {
-  return <div>Home</div>;
+  return (
+    <>
+      <section>
+        <div className="h-screen"> home</div>
+        <BackToTop />
+      </section>
+    </>
+  );
 }
