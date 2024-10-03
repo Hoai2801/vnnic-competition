@@ -22,8 +22,11 @@ const SkeletonProps: React.FC<ImageComponentProps> = ({
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting && entry.target.complete) {
-          setHeight(entry.target.clientHeight);
+        if (
+          entry.isIntersecting &&
+          (entry.target as HTMLImageElement).complete
+        ) {
+          setHeight((entry.target as HTMLImageElement).clientHeight);
           observer.unobserve(entry.target);
         }
       });
@@ -38,11 +41,15 @@ const SkeletonProps: React.FC<ImageComponentProps> = ({
 
   return (
     <>
-      <Skeleton
-        className={`${classNames} ${!isLoading ? "hidden opacity-0" : "opacity-100"}`}
-        height={height}
+      {isLoading && <Skeleton className={classNames} height={height} />}
+      <img
+        ref={imgRef}
+        src={src}
+        alt=""
+        className={`${classNames} w-full`}
+        onLoad={() => setIsLoading(false)}
+        onError={() => setIsLoading(true)}
       />
-      <img ref={imgRef} src={src} alt="" className={`${classNames} w-full`} />
     </>
   );
 };

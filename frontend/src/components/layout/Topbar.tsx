@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import ThemeToggle from "../theme/ThemeToggle";
 import SkeletonProps from "../ui/SkeletonProps";
 
 export default function Topbar() {
@@ -29,6 +30,7 @@ export default function Topbar() {
           </p>
         </div>
         <div className="flex items-center gap-2">
+          <ThemeToggle />
           <div className="flex items-center rounded-md">
             <input
               type="text"
