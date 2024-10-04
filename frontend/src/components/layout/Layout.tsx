@@ -10,7 +10,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <div className="w-full max-w-[1280px]">
         <Topbar />
         <Navbar />
-        {children}
+        <div className="px-2 sm:px-0">{children}</div>
         <BackToTop />
         <Footer />
       </div>

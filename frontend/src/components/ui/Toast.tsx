@@ -22,13 +22,13 @@ const Toast: React.FC<ToastProps> = ({ message, type = "info", onClose }) => {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 50 }}
+      initial={{ opacity: 0, y: -50 }}
       animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: 50 }}
+      exit={{ opacity: 0, y: -50 }}
       transition={{ duration: 0.3 }}
-      className={`toast rounded p-4 ${getTypeStyles()}`}
+      className={`toast rounded p-2 sm:p-4 ${getTypeStyles()}`}
     >
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between text-sm sm:text-base">
         <span>{message}</span>
         <button onClick={onClose} className="ml-4">
           &times;

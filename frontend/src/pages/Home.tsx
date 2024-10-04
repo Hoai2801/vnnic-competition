@@ -10,7 +10,7 @@ export default function Home() {
   };
   return (
     <Transition>
-      <section className="px-2 xl:px-0">
+      <section>
         <div>home</div>
       </section>
       <div>
