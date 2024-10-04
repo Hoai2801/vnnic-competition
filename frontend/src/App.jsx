@@ -2,6 +2,7 @@ import { lazy, Suspense, useEffect } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import Loading from "./components/common/loading/Loading";
 import Layout from "./components/layout/Layout";
+import { ToastProvider } from "./components/ui/ToastContext";
 
 const Home = lazy(() => import("./pages/Home"));
 const Notfound = lazy(() => import("./pages/notfound/Notfound"));
@@ -39,12 +40,14 @@ export default function App() {
   ];
 
   return (
-    <Suspense fallback={<Loading />}>
-      <Routes location={location} key={location.pathname}>
-        {routerItem.map((route) => (
-          <Route key={route.path} path={route.path} element={route.element} />
-        ))}
-      </Routes>
-    </Suspense>
+    <ToastProvider>
+      <Suspense fallback={<Loading />}>
+        <Routes location={location} key={location.pathname}>
+          {routerItem.map((route) => (
+            <Route key={route.path} path={route.path} element={route.element} />
+          ))}
+        </Routes>
+      </Suspense>
+    </ToastProvider>
   );
 }

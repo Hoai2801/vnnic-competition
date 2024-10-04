@@ -1,6 +1,7 @@
 import React from "react";
 import Transition from "../../components/common/Transition";
 import BackButton from "../../components/ui/BackButton";
+import Anchor from "./../../components/ui/anchor/Anchor";
 
 const Register = () => {
   return (
@@ -46,12 +47,11 @@ const Register = () => {
           </div>
           <div className="mt-4 text-center text-sm font-semibold text-slate-500 md:text-left">
             Already have an account?{" "}
-            <a
-              className="text-blue-600 hover:underline hover:underline-offset-4"
+            <Anchor
+              text="Login"
               href="/login"
-            >
-              Login
-            </a>
+              className="text-blue-600 after:bg-blue-600"
+            />
           </div>
         </div>
       </section>
