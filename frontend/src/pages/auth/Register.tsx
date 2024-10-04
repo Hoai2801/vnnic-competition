@@ -4,6 +4,7 @@ import BackButton from "../../components/ui/BackButton";
 
 const Register = () => {
   return (
+    //todo make dark mode
     <Transition>
       <section className="mx-5 my-2 flex h-screen flex-col items-center justify-center space-y-10 md:mx-0 md:my-0 md:flex-row md:space-x-16 md:space-y-0">
         <div className="max-w-sm md:w-1/3">

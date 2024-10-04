@@ -6,6 +6,7 @@ import styles from "./Notfound.module.css";
 
 export default function Notfound() {
   return (
+    //todo make dark mode
     <>
       <Transition>
         <section className="flex h-screen w-full items-center justify-center">
@@ -17,7 +18,7 @@ export default function Notfound() {
               className={`${styles.content} content max-w-[600px] text-center`}
             >
               <h2
-                className={`${styles.header} relative mb-4 max-w-[600px] text-[160px] font-bold leading-[1em] after:absolute after:left-0 after:right-0 after:top-0`}
+                className={`${styles.header} relative mb-4 max-w-[600px] text-[100px] font-bold leading-[1em] after:absolute after:left-0 after:right-0 after:top-0 sm:text-[160px]`}
                 data-text="404"
               >
                 404
@@ -32,7 +33,7 @@ export default function Notfound() {
                 Sorry, the page you're looking for doesn't exist. If you think
                 something is broken, report a problem.
               </p>
-              <div className="mt-5 flex flex-col justify-center gap-2 sm:flex-row">
+              <div className="mt-5 flex justify-center gap-2">
                 <Link to="/">
                   <button className="rounded-md bg-sky-500 px-3 py-2 text-white transition-colors hover:bg-sky-600 active:bg-sky-500">
                     Trang chủ
