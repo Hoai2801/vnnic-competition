@@ -14,7 +14,7 @@ export default function Navbar() {
 
   return (
     <>
-      <div className="sticky top-0 mb-2 flex w-full gap-2 bg-[#282A35] px-2 text-white">
+      <div className="sticky top-0 z-10 mb-2 flex w-full gap-2 bg-[#282A35] px-2 text-sm text-white sm:text-base">
         {navItems.map((item) => (
           <NavLink
             key={item.to}

@@ -2,32 +2,37 @@ import React, { useEffect, useRef, useState } from "react";
 import Skeleton from "./Skeleton";
 
 interface ImageComponentProps {
+  Height?: number;
   src: string;
   className?: string;
 }
 
 const SkeletonProps: React.FC<ImageComponentProps> = ({
+  Height,
   src,
   className: additionalClassNames,
 }) => {
   const [isLoading, setIsLoading] = useState(true);
-  const classNames = additionalClassNames || "";
-  const [height, setHeight] = useState(0);
+  const [height, setHeight] = useState(Height || 0);
   const imgRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
     const img = new Image();
     img.src = src;
-    img.onload = () => setIsLoading(false);
+    img.onload = () => {
+      setIsLoading(false);
+      if (imgRef.current) {
+        setHeight(imgRef.current.naturalHeight);
+      }
+    };
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (
-          entry.isIntersecting &&
-          (entry.target as HTMLImageElement).complete
-        ) {
-          setHeight((entry.target as HTMLImageElement).clientHeight);
-          observer.unobserve(entry.target);
+        if (entry.isIntersecting && imgRef.current) {
+          setHeight(imgRef.current.naturalHeight);
+          if ((entry.target as HTMLImageElement).complete) {
+            observer.unobserve(entry.target);
+          }
         }
       });
     });
@@ -41,15 +46,23 @@ const SkeletonProps: React.FC<ImageComponentProps> = ({
 
   return (
     <>
-      {isLoading && <Skeleton className={classNames} height={height} />}
-      <img
-        ref={imgRef}
-        src={src}
-        alt=""
-        className={`${classNames} w-full`}
-        onLoad={() => setIsLoading(false)}
-        onError={() => setIsLoading(true)}
-      />
+      {isLoading ? (
+        <Skeleton className={additionalClassNames || ""} height={height} />
+      ) : (
+        <img
+          ref={imgRef}
+          src={src}
+          alt=""
+          className={`${additionalClassNames || ""} w-full`}
+          onLoad={() => {
+            setIsLoading(false);
+            if (imgRef.current) {
+              setHeight(imgRef.current.naturalHeight);
+            }
+          }}
+          onError={() => setIsLoading(true)}
+        />
+      )}
     </>
   );
 };
