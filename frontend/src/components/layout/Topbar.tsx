@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import ThemeToggle from "../theme/ThemeToggle";
-import SkeletonProps from "../ui/SkeletonProps";
+import SkeletonImage from "../ui/SkeletonImage";
 
+// todo kiếm logo tách phông
 export default function Topbar() {
   return (
     <>
-      <div className="flex w-full items-center justify-between gap-4 border-b px-4 py-2">
+      <div className="sticky top-0 z-10 flex w-full items-center justify-between gap-4 border-b bg-white px-4 py-2">
         <div className="flex items-center gap-3">
           <div className="flex items-center gap-1">
             <img
@@ -30,7 +30,7 @@ export default function Topbar() {
           </p>
         </div>
         <div className="flex items-center gap-2">
-          <ThemeToggle />
+          {/* <ThemeToggle /> */}
           <div className="flex items-center gap-2 rounded-md">
             <input
               type="text"
@@ -62,10 +62,10 @@ export default function Topbar() {
         </div>
       </div>
       <div className="flex w-full justify-center py-4">
-        <SkeletonProps
-          Height={120}
+        <SkeletonImage
+          height={120}
           src="https://scontent.fsgn19-1.fna.fbcdn.net/v/t39.30808-6/461340984_925343789628003_5559711756639599007_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeGmYMQYlA9cPGQk2majVgyQ2FuOTn8nE8XYW45OfycTxeYtzFjBQ3WwrvQHWvFPrmcOiDHpnn7mpKLiB69l92u_&_nc_ohc=XDSNj0JvjssQ7kNvgGqjgwV&_nc_ht=scontent.fsgn19-1.fna&_nc_gid=AmLAf32CfLUQcR3b6x7x4dK&oh=00_AYD4N2lLbZ6lw8uwnMpGaDwFRfHog3GyDDO2JZHUQQutgA&oe=6701BE71"
-          className="max-w-[1280px]"
+          additionalClassNames="max-w-[1280px]"
         />
       </div>
     </>

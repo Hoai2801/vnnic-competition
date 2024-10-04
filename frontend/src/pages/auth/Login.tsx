@@ -1,9 +1,11 @@
 import React from "react";
 import Transition from "../../components/common/Transition";
 import BackButton from "../../components/ui/BackButton";
+import Anchor from "../../components/ui/anchor/Anchor";
 
 const Login = () => {
   return (
+    //todo make dark mode
     <Transition>
       <section className="mx-5 my-2 flex h-screen flex-col items-center justify-center space-y-10 md:mx-0 md:my-0 md:flex-row md:space-x-16 md:space-y-0">
         <div className="max-w-sm md:w-1/3">
@@ -29,12 +31,11 @@ const Login = () => {
               <input className="mr-1" type="checkbox" />
               <span>Remember Me</span>
             </label>
-            <a
-              className="text-blue-600 hover:text-blue-700 hover:underline hover:underline-offset-4"
+            <Anchor
+              text="Forgot Password?"
               href="#"
-            >
-              Forgot Password?
-            </a>
+              className="text-blue-600 after:bg-blue-600"
+            />
           </div>
           <div className="mt-4 flex gap-4 text-center md:text-left">
             <button
@@ -47,12 +48,11 @@ const Login = () => {
           </div>
           <div className="mt-4 text-center text-sm font-semibold text-slate-500 md:text-left">
             Don&apos;t have an account?{" "}
-            <a
-              className="text-red-600 hover:underline hover:underline-offset-4"
+            <Anchor
+              text="Register"
               href="/register"
-            >
-              Register
-            </a>
+              className="text-red-600 after:bg-red-600"
+            />
           </div>
         </div>
       </section>
