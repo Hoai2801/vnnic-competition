@@ -22,7 +22,7 @@ const ThemeToggle: React.FC = () => {
   return (
     <button
       onClick={toggleTheme}
-      className="flex items-center rounded bg-gray-200 p-2 dark:bg-gray-800"
+      className="flex items-center rounded bg-gray-200 p-2.5 dark:bg-gray-800"
     >
       {theme === "light" ? (
         <svg

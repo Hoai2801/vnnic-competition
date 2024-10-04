@@ -18,6 +18,7 @@ const Skeleton: React.FC<SkeletonProps> = ({
   return (
     <div
       className={`${widthStyle} ${classNames} ${heightStyle} animate-pulse bg-gray-300 transition-opacity`}
+      style={{ width: width, height: height }}
     ></div>
   );
 };
