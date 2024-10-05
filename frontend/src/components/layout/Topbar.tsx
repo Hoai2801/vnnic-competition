@@ -8,18 +8,20 @@ export default function Topbar() {
     <>
       <div className="sticky top-0 z-10 flex w-full items-center justify-between gap-4 border-b bg-white p-2 sm:px-4">
         <div className="flex items-center gap-3">
-          <div className="flex items-center gap-1">
-            <img
-              src="https://upload.wikimedia.org/wikipedia/vi/0/09/Huy_Hi%E1%BB%87u_%C4%90o%C3%A0n.png"
-              alt=""
-              className="h-[40px] sm:h-[50px]"
-            />
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/f/fa/LogoGDU.jpg"
-              alt=""
-              className="h-[35px] sm:h-[45px]"
-            />
-          </div>
+          <Link to="/">
+            <div className="flex items-center gap-2">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/vi/0/09/Huy_Hi%E1%BB%87u_%C4%90o%C3%A0n.png"
+                alt=""
+                className="h-[40px] sm:h-[50px]"
+              />
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/f/fa/LogoGDU.jpg"
+                alt=""
+                className="h-[35px] sm:h-[45px]"
+              />
+            </div>
+          </Link>
           <p className="hidden text-sm md:block">
             {new Intl.DateTimeFormat("vi-VN", {
               weekday: "long",
@@ -54,7 +56,7 @@ export default function Topbar() {
               </svg>
             </button>
             <Link to={"/login"}>
-              <button className="rounded-md bg-sky-500 px-3 py-2 text-sm text-white transition-colors hover:bg-sky-600">
+              <button className="rounded-md bg-sky-500 px-2.5 py-1.5 text-sm text-white transition-colors hover:bg-sky-600">
                 Login
               </button>
             </Link>

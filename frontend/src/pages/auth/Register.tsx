@@ -1,9 +1,15 @@
 import React from "react";
 import Transition from "../../components/common/Transition";
 import BackButton from "../../components/ui/BackButton";
+import { useToast } from "../../components/ui/ToastContext";
 import Anchor from "./../../components/ui/anchor/Anchor";
 
 const Register = () => {
+  const { addToast } = useToast();
+
+  const handleClick = () => {
+    addToast("Error!", "error");
+  };
   return (
     //todo make dark mode
     <Transition>
@@ -40,6 +46,7 @@ const Register = () => {
             <button
               className="rounded bg-blue-600 px-4 py-2 text-xs uppercase tracking-wider text-white hover:bg-blue-700"
               type="submit"
+              onClick={handleClick}
             >
               Register
             </button>
