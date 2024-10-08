@@ -9,7 +9,7 @@ export default function Topbar() {
       <div className="sticky top-0 z-10 flex w-full items-center justify-between gap-4 border-b bg-white p-2 sm:px-4">
         <div className="flex items-center gap-3">
           <Link to="/">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 border-r pr-2">
               <img
                 src="https://upload.wikimedia.org/wikipedia/vi/0/09/Huy_Hi%E1%BB%87u_%C4%90o%C3%A0n.png"
                 alt=""

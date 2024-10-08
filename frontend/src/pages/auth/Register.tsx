@@ -21,7 +21,9 @@ const Register = () => {
           />
         </div>
         <div className="max-w-sm md:w-1/3">
-          <h2 className="mb-4 text-3xl font-bold text-gray-900">Register</h2>
+          <h2 className="mb-4 text-2xl font-bold text-gray-900 md:text-3xl">
+            Register
+          </h2>
           <input
             className="w-full rounded border border-solid border-gray-300 px-4 py-2 text-sm"
             type="text"
