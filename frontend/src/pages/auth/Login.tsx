@@ -1,9 +1,15 @@
 import React from "react";
 import Transition from "../../components/common/Transition";
-import BackButton from "../../components/ui/BackButton";
 import Anchor from "../../components/ui/anchor/Anchor";
+import BackButton from "../../components/ui/BackButton";
+import { useToast } from "../../components/ui/ToastContext";
 
 const Login = () => {
+  const { addToast } = useToast();
+
+  const handleClick = () => {
+    addToast("Error!", "error");
+  };
   return (
     //todo make dark mode
     <Transition>
@@ -15,7 +21,9 @@ const Login = () => {
           />
         </div>
         <div className="max-w-sm md:w-1/3">
-          <h2 className="mb-4 text-3xl font-bold text-gray-900">Login</h2>
+          <h2 className="mb-4 text-2xl font-bold text-gray-900 md:text-3xl">
+            Login
+          </h2>
           <input
             className="w-full rounded border border-solid border-gray-300 px-4 py-2 text-sm"
             type="text"
@@ -41,6 +49,7 @@ const Login = () => {
             <button
               className="rounded bg-blue-600 px-4 py-2 text-xs uppercase tracking-wider text-white hover:bg-blue-700"
               type="submit"
+              onClick={handleClick}
             >
               Login
             </button>

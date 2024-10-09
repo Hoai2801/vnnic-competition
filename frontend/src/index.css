@@ -1,3 +1,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "Canopee";
+  src: url("./assets/SVN-Canopee.otf") format("truetype");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "NeueMontreal";
+  src: url("./assets/NeueMontreal-Regular.otf") format("truetype");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "NeueMontreal";
+  src: url("./assets/NeueMontreal-Bold.otf") format("truetype");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "NeueMontreal";
+  src: url("./assets/NeueMontreal-Medium.otf") format("truetype");
+  font-weight: medium;
+}
+
+@font-face {
+  font-family: "NeueMontreal";
+  src: url("./assets/NeueMontreal-Light.otf") format("truetype");
+  font-weight: light;
+}

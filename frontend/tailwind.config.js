@@ -11,6 +11,10 @@ export default {
         primary: "#121212",
         secondary: "#F2F2F2",
       },
+      fontFamily: {
+        canopee: ["Canopee", "sans-serif"],
+        neue: ["NeueMontreal", "sans-serif"],
+      },
     },
   },
   plugins: [],
