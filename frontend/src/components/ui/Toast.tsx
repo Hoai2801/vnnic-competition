@@ -20,12 +20,19 @@ const Toast: React.FC<ToastProps> = ({ message, type = "info", onClose }) => {
     }
   };
 
+  const variants = {
+    initial: { opacity: 0, y: -50 },
+    enter: { opacity: 1, y: 0 },
+    exit: { opacity: 0, y: -50 },
+  };
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: -50 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -50 }}
+      initial="initial"
+      animate="enter"
+      exit="exit"
       transition={{ duration: 0.3 }}
+      variants={variants}
       className={`toast rounded p-2 sm:p-4 ${getTypeStyles()}`}
     >
       <div className="flex items-center justify-between text-sm sm:text-base">

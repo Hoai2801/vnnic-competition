@@ -20,13 +20,26 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
             transition={{ duration: 0.3 }}
             className="fixed inset-0 z-50"
           >
-            <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-              <div className="relative rounded bg-white p-4 shadow-lg">
-                <button onClick={onClose} className="absolute right-1 top-0">
+            <div
+              className="flex h-full w-full items-center justify-center bg-black bg-opacity-50"
+              onClick={(e) => {
+                if (e.target === e.currentTarget) onClose();
+              }}
+            >
+              <motion.div
+                initial={{ scale: 0.5 }}
+                animate={{ scale: 1 }}
+                exit={{ scale: 0.8 }}
+                className="relative flex items-center justify-center rounded bg-white p-6 shadow-lg"
+              >
+                <button
+                  onClick={onClose}
+                  className="absolute -top-1.5 right-1 text-2xl sm:text-3xl"
+                >
                   &times;
                 </button>
                 {children}
-              </div>
+              </motion.div>
             </div>
           </motion.div>
         )}

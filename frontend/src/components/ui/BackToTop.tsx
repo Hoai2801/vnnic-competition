@@ -5,7 +5,7 @@ export default function BackToTop() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 100) setVisible(true);
+      if (window.scrollY > 10) setVisible(true);
       else setVisible(false);
     };
 
@@ -24,24 +24,26 @@ export default function BackToTop() {
   };
 
   return (
-    <div
-      className={`fixed bottom-3 right-3 z-10 cursor-pointer rounded-full bg-sky-500 p-2 text-white transition-all duration-300 hover:bg-sky-600 ${visible ? "opacity-100" : "opacity-0"}`}
-      onClick={handleClick}
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        className="h-6 w-6"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
+    <>
+      <div
+        className={`fixed bottom-3 right-3 z-10 rounded-full border p-2 transition-opacity ${visible ? "cursor-pointer opacity-100" : "cursor-default opacity-0"}`}
+        onClick={visible ? handleClick : undefined}
       >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={2}
-          d="M5 15l7-7 7 7"
-        />
-      </svg>
-    </div>
+        <svg
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          className="h-6 w-6"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M10 18V2m0 0l7 7m-7-7L3 9"
+            className="stroke-gray-800"
+          />
+        </svg>
+      </div>
+    </>
   );
 }

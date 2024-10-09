@@ -29,8 +29,10 @@ export default function Home() {
       <div>
         <button onClick={openModal}>Open Modal</button>
         <Modal isOpen={isModalOpen} onClose={closeModal}>
-          <h2>Modal Title</h2>
-          <p>This is the modal content.</p>
+          <div>
+            <h2>Modal Title</h2>
+            <p>This is the modal content.</p>
+          </div>
         </Modal>
       </div>
     </Transition>
