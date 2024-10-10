@@ -9,7 +9,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <>
       <Topbar />
       <Navbar />
-      <div className="min-h-screen max-w-[1280px] px-4">{children}</div>
+      <div className="dark:bg-dark bg-white py-4 dark:text-white">
+        <div className="container px-4"> {children}</div>
+      </div>
       <Footer />
       <BackToTop />
     </>

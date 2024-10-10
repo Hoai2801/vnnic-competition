@@ -8,8 +8,8 @@ export default {
         center: true,
       },
       colors: {
-        primary: "#121212",
-        secondary: "#F2F2F2",
+        background: "#333",
+        dark: "#181818",
       },
       fontFamily: {
         canopee: ["Canopee", "sans-serif"],

@@ -21,7 +21,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
             className="fixed inset-0 z-50"
           >
             <div
-              className="flex h-full w-full items-center justify-center bg-black bg-opacity-50"
+              className="flex h-full w-full items-center justify-center bg-black bg-opacity-50 dark:bg-white dark:bg-opacity-5"
               onClick={(e) => {
                 if (e.target === e.currentTarget) onClose();
               }}
@@ -30,11 +30,11 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
                 initial={{ scale: 0.5 }}
                 animate={{ scale: 1 }}
                 exit={{ scale: 0.8 }}
-                className="relative flex items-center justify-center rounded bg-white p-6 shadow-lg"
+                className="dark:bg-dark relative mx-4 flex items-center justify-center rounded border border-gray-500 bg-white p-6 shadow-lg"
               >
                 <button
                   onClick={onClose}
-                  className="absolute -top-1.5 right-1 text-2xl sm:text-3xl"
+                  className="absolute -top-2 right-1 text-4xl dark:text-white"
                 >
                   &times;
                 </button>

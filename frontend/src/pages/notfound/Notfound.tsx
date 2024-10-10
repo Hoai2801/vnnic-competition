@@ -8,7 +8,7 @@ export default function Notfound() {
   return (
     //todo make dark mode
     <Transition>
-      <section className="flex h-screen w-full items-center justify-center">
+      <section className="dark:bg-dark flex h-screen w-full items-center justify-center dark:text-white">
         <div
           className="flex h-full w-full items-center justify-center rounded bg-secondary px-8 py-4 text-primary transition-colors duration-300 md:px-12 md:py-8"
           id="error-page"

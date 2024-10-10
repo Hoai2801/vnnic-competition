@@ -10,6 +10,11 @@ const Login = lazy(() => import("./pages/auth/Login"));
 const Register = lazy(() => import("./pages/auth/Register"));
 
 export default function App() {
+  (function () {
+    const savedTheme = localStorage.getItem("theme") || "light";
+    document.documentElement.classList.add(savedTheme);
+  })();
+
   const location = useLocation();
 
   useEffect(() => {
