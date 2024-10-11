@@ -24,7 +24,7 @@ const BlogThumbnailColumnLayout: React.FC<Props> = ({
     <Link to={`/blog/${slug}`}>
       <div className={`${isMain ? "lg:w-[600px]" : "lg:w-[300px]"}`}>
         <div
-          className={`flex h-[240px] items-center justify-center overflow-hidden rounded-md ${isMain ? "lg:h-[340px]" : "lg:h-[170px]"}`}
+          className={`flex h-[240px] items-center justify-center overflow-hidden rounded-lg ${isMain ? "lg:h-[340px]" : "lg:h-[170px]"}`}
         >
           <img
             src={thumbnailUrl}
@@ -32,9 +32,9 @@ const BlogThumbnailColumnLayout: React.FC<Props> = ({
             className={`h-full w-full object-cover`}
           />
         </div>
-        <div className={`flex max-w-2xl flex-col gap-2 p-2`}>
+        <div className={`flex max-w-2xl flex-col gap-2 py-4`}>
           <p
-            className={`w-fit rounded-3xl bg-[#D3AA7E] px-3 py-1 text-sm font-semibold text-white`}
+            className={`w-fit rounded-full bg-[#D3AA7E] px-3 py-1 text-sm font-semibold text-white`}
           >
             {category}
           </p>
@@ -43,7 +43,7 @@ const BlogThumbnailColumnLayout: React.FC<Props> = ({
           >
             {title}
           </h1>
-          <p className={` ${isMain ? "lg:block lg:text-base" : ""}`}>
+          <p className={` ${isMain ? "lg:block lg:text-base" : "lg:hidden"}`}>
             {description}
           </p>
           <p className={`flex items-center gap-1 text-gray-500`}>
