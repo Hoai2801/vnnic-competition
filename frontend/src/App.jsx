@@ -2,7 +2,7 @@ import { lazy, Suspense, useEffect } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import Loading from "./components/common/loading/Loading";
 import Layout from "./components/layout/Layout";
-import { ToastProvider } from "./components/ui/ToastContext";
+import { ToastProvider } from "./components/ui/toast/ToastContext";
 
 const Home = lazy(() => import("./pages/Home"));
 const Notfound = lazy(() => import("./pages/notfound/Notfound"));

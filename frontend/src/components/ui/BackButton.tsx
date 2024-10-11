@@ -1,10 +1,10 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
-type BackButtonProps = {
+interface BackButtonProps {
   text?: string;
   className?: string;
-};
+}
 
 const BackButton: React.FC<BackButtonProps> = ({
   text: additionalText,

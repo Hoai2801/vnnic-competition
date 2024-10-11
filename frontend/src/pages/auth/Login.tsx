@@ -2,7 +2,7 @@ import React from "react";
 import Transition from "../../components/common/Transition";
 import Anchor from "../../components/ui/anchor/Anchor";
 import BackButton from "../../components/ui/BackButton";
-import { useToast } from "../../components/ui/ToastContext";
+import { useToast } from "../../components/ui/toast/ToastContext";
 
 const Login = () => {
   const { addToast } = useToast();
@@ -12,7 +12,7 @@ const Login = () => {
   };
   return (
     <Transition>
-      <div className="dark:bg-dark py-2">
+      <div className="py-2 dark:bg-dark">
         <div className="mx-5 flex h-screen flex-col items-center justify-center space-y-10 md:mx-0 md:my-0 md:flex-row md:space-x-16 md:space-y-0">
           <div className="max-w-sm md:w-1/3">
             <img
@@ -25,12 +25,12 @@ const Login = () => {
               Login
             </h2>
             <input
-              className="dark:bg-dark w-full rounded border border-solid border-gray-300 px-4 py-2 text-sm"
+              className="w-full rounded border border-solid border-gray-300 px-4 py-2 text-sm dark:bg-dark"
               type="text"
               placeholder="Email Address"
             />
             <input
-              className="dark:bg-dark mt-4 w-full rounded border border-solid border-gray-300 px-4 py-2 text-sm"
+              className="mt-4 w-full rounded border border-solid border-gray-300 px-4 py-2 text-sm dark:bg-dark"
               type="password"
               placeholder="Password"
             />
