@@ -59,7 +59,6 @@ const BlogLayout = () => {
             </div>
           </div>
         </section>
-
       </div>
 
       <div className={`col-span-1`}>

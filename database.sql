@@ -2,18 +2,23 @@ create database vnnic;
 
 use vnnic;
 
-create table category(
-	id int primary key auto_increment,
-    name varchar(100) not null
+CREATE TABLE Category (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(100) NOT NULL
 );
 
-create table blog(
-	id bigint primary key auto_increment,
-    title varchar(1000) not null,
-    content longtext not null,
-    category int not null,
-    created_at datetime not null
+CREATE TABLE Blog (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  title VARCHAR(255) NOT NULL,
+  category_id INT,
+  excerpt TEXT,
+  slug VARCHAR(255) UNIQUE NOT NULL,
+  date DATE,
+  coverImage VARCHAR(255),
+  content TEXT,
+  FOREIGN KEY (category_id) REFERENCES Category(id) ON DELETE SET NULL
 );
+
 
 create table user(
 	id bigint primary key auto_increment,
