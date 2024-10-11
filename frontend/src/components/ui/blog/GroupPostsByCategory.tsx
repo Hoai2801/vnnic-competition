@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import BlogThumbnailColumnLayout from "./BlogThumbnailColumnLayout";
 import BlogThumbnailRowLayout from "./BlogThumbnailRowLayout";
 

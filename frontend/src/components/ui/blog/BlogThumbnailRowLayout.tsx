@@ -18,7 +18,7 @@ const BlogThumbnailRowLayout: React.FC<Props> = ({
     <Link to={`/blog/${slug}`}>
       <div className={`flex justify-between`}>
         <div className={`flex max-w-xl flex-col gap-2`}>
-          <p className={`text-sm font-medium lg:w-[300px]`}>{title}</p>
+          <p className={`text-sm font-medium lg:w-[300px] dark:text-white`}>{title}</p>
           <p className={`flex items-center gap-1 text-gray-500`}>
             {/* clock icon */}
             <span>
