@@ -5,10 +5,8 @@ export default function BackToTop() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) setVisible(true);
-      else setVisible(false);
-    };
+    const handleScroll = () =>
+      window.scrollY > 50 ? setVisible(true) : setVisible(false);
 
     window.addEventListener("scroll", handleScroll);
 
@@ -40,7 +38,7 @@ export default function BackToTop() {
             exit="exit"
             transition={{ duration: 0.3 }}
             variants={variants}
-            className="border-background fixed bottom-3 right-3 z-10 cursor-pointer rounded-full border p-1.5 dark:border-white"
+            className="fixed bottom-3 right-3 z-10 cursor-pointer rounded-full border border-white p-1.5 mix-blend-difference transition-colors"
             onClick={visible ? handleClick : undefined}
           >
             <svg
@@ -53,7 +51,7 @@ export default function BackToTop() {
                 strokeLinejoin="round"
                 strokeWidth={2}
                 d="M10 18V2m0 0l7 7m-7-7l-7 7"
-                className="stroke-background dark:stroke-white"
+                className="stroke-white"
               />
             </svg>
           </motion.div>

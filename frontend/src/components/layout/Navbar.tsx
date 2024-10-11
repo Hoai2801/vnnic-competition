@@ -29,7 +29,7 @@ export default function Navbar() {
 
   return (
     <>
-      <div className="dark:bg-dark sticky top-0 z-10 border-b bg-white px-4 dark:text-white">
+      <div className="sticky top-0 z-10 border-b bg-white px-4 transition-colors dark:bg-dark dark:text-white">
         <div className="container flex h-[60px] items-center justify-between md:h-[70px]">
           <div className="flex items-center gap-2">
             <Link to={"/"}>
@@ -44,7 +44,7 @@ export default function Navbar() {
                     [
                       "text-nowrap p-2 transition-colors hover:text-indigo-600",
                       isPending ? "pending" : "",
-                      isActive ? "active" : "",
+                      isActive ? "text-indigo-600" : "",
                       isTransitioning ? "transitioning" : "",
                     ].join(" ")
                   }
@@ -129,7 +129,7 @@ export default function Navbar() {
       <Modal isOpen={isModalOpen} onClose={closeModal}>
         <div className="flex gap-2 px-2">
           <input
-            className="dark:bg-dark w-full rounded border border-solid border-gray-300 px-4 py-2 text-sm focus:outline-none dark:text-white"
+            className="w-full rounded border border-solid border-gray-300 px-4 py-2 text-sm focus:outline-none dark:bg-dark dark:text-white"
             type="text"
             placeholder="Search something..."
           />
