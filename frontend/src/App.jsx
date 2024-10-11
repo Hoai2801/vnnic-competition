@@ -1,8 +1,10 @@
-import { lazy, Suspense, useEffect } from "react";
-import { Route, Routes, useLocation } from "react-router-dom";
+import { lazy, Suspense } from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Loading from "./components/common/loading/Loading";
 import Layout from "./components/layout/Layout";
 import { ToastProvider } from "./components/ui/toast/ToastContext";
+import UploadBlog from "./pages/admin/UploadBlog";
+import AdminLayout from "./pages/admin/AdminLayout";
 
 const Home = lazy(() => import("./pages/Home"));
 const Notfound = lazy(() => import("./pages/notfound/Notfound"));
@@ -15,13 +17,7 @@ export default function App() {
     document.documentElement.classList.add(savedTheme);
   })();
 
-  const location = useLocation();
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [location.pathname]);
-
-  const routerItem = [
+  const router = createBrowserRouter([
     {
       path: "/",
       element: (
@@ -39,19 +35,25 @@ export default function App() {
       element: <Register />,
     },
     {
+      path: "/admin",
+      element: <AdminLayout />,
+      children: [
+        {
+          path: "upload",
+          element: <UploadBlog />,
+        },
+      ],
+    },
+    {
       path: "*",
       element: <Notfound />,
     },
-  ];
+  ]);
 
   return (
     <ToastProvider>
       <Suspense fallback={<Loading />}>
-        <Routes location={location} key={location.pathname}>
-          {routerItem.map((route) => (
-            <Route key={route.path} path={route.path} element={route.element} />
-          ))}
-        </Routes>
+        <RouterProvider router={router} />
       </Suspense>
     </ToastProvider>
   );
