@@ -34,7 +34,7 @@ const BlogThumbnailRowLayout: React.FC<Props> = ({
           </p>
         </div>
         <div
-          className={`min-h-[100px] w-[100px] flex-shrink-0 overflow-hidden rounded-md`}
+          className={`min-h-[100px] w-[100px] flex-shrink-0 overflow-hidden rounded-lg`}
         >
           <img
             src={thumbnailUrl}
