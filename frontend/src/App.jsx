@@ -3,7 +3,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Loading from "./components/common/loading/Loading";
 import Layout from "./components/layout/Layout";
 import { ToastProvider } from "./components/ui/toast/ToastContext";
-import UploadBlog from "./pages/admin/UploadBlog";
+import UploadBlog from "./pages/admin/UploadBlog.tsx";
 import AdminLayout from "./pages/admin/AdminLayout";
 
 const Home = lazy(() => import("./pages/Home"));
