@@ -47,7 +47,7 @@ const RelatedPosts = () => {
       </h2>
       <div className={`grid grid-cols-1 gap-4`}>
         {posts.map((post) => (
-          <div className={`border-b-2 border-gray-200 p-2`}>
+          <div className={`p-2`}>
             <BlogThumbnailRowLayout
               key={post.id}
               title={post.title}

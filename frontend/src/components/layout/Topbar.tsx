@@ -1,6 +1,41 @@
-import React from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import React, { useState } from "react";
 
 export default function Topbar() {
+  const [letterIndex, setLetterIndex] = useState<number>(0);
+
+  const posts = [
+    {
+      id: 0,
+      title:
+        "CUỘC THI TRỰC TUYẾN “SINH VIÊN ĐẠI HỌC ĐÔNG Á VỚI CHUYỂN ĐỔI SỐ” năm 2024",
+      category: "Tin 1",
+      excerpt:
+        "Nhân dịp Kỷ niệm Ngày Chuyển đổi số Quốcgia 2024, Đoàn Thanh Niên Trường Đại học Đông Á chính thức phát động Cuộc thi Trực tuyến...",
+      slug: "tin-1",
+      date: "01/01/2023",
+      coverImage:
+        "https://tuoitredaihocdonga.org.vn/wp-content/uploads/2024/10/Blue-Gradient-Artificial-Intelligence-Digital-Transformation-Futuristic-Illustrative-Infographic-2.png",
+    },
+    {
+      id: 1,
+      title: "lore rfgfsdgsdfgsdgshghjhjgjgjgjgm",
+      category: "Tin 1",
+      excerpt:
+        "Nhân dịp Kỷ niệm Ngày Chuyển đổi số Quốc gia 2024, Đoàn Thanh Niên Trường Đại học Đông Á chính th.rpm phát động Cuộc thi Tracular...",
+      slug: "tin-1",
+      date: "01/01/2023",
+      coverImage:
+        "https://tuoitredaihocdonga.org.vn/wp-content/uploads/2024/10/Blue-Gradient-Artificial-Intelligence-Digital-Transformation-Futuristic-Illustrative-Infographic-2.png",
+    },
+  ];
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setLetterIndex((letterIndex + 1) % posts.length);
+    }, 10000);
+    return () => clearInterval(interval);
+  }, [letterIndex]);
   return (
     <>
       <div className="border-b bg-background px-4 text-sm text-white transition-colors dark:bg-dark sm:text-base">
@@ -18,10 +53,27 @@ export default function Topbar() {
                 className="fill-white"
               />
             </svg>
-            <p className="font-neue text-xs font-bold">Popular</p>
+            <p className="font-neue text-sm font-bold">Popular</p>
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={posts[letterIndex].id}
+                initial={{ opacity: 0, y: -50 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 50 }}
+                transition={{ duration: 0.3 }}
+                className="ml-1 flex items-center gap-2"
+              >
+                <p
+                  className="truncate text-sm"
+                  style={{ maxWidth: "calc(100vw - 180px)" }}
+                >
+                  {posts[letterIndex].title}
+                </p>
+              </motion.div>
+            </AnimatePresence>
           </div>
           <div className="flex items-center py-2.5">
-            <div className="flex items-center gap-3 pr-4">
+            <div className="hidden items-center gap-3 pr-4 md:flex">
               <svg
                 version="1.1"
                 id="Layer_1"

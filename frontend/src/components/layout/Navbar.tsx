@@ -57,7 +57,7 @@ export default function Navbar() {
     <>
       <div className="sticky top-0 z-30">
         <div className="relative border-b bg-white px-4 transition-colors dark:bg-dark dark:text-white">
-          <div className="container flex h-[60px] items-center justify-between md:h-[70px]">
+          <div className="container flex h-[60px] items-center justify-between md:h-[70px] 2xl:h-[120px]">
             <div className="flex items-center gap-2">
               <Link to={"/"}>
                 <img src={logo} alt="" className="h-[40px] md:h-[50px]" />
@@ -160,7 +160,7 @@ export default function Navbar() {
           variants={variants}
           transition={{ duration: 0.15 }}
           style={{ scaleX }}
-          className={`absolute bottom-0 left-0 right-0 h-px origin-left bg-red-500`}
+          className={`absolute bottom-0 left-0 right-0 h-0.5 origin-left bg-sky-500`}
         />
       </div>
       <Modal isOpen={isModalOpen} onClose={closeModal}>
