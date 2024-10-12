@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import avatar from "../../assets/doan.png";
-import "./style.css";
 
 interface Blog {
   id: number;

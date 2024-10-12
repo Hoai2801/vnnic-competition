@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import SkeletonImage from "../skeleton/SkeletonImage";
 
 interface Props {
   title: string;
@@ -34,13 +35,12 @@ const BlogThumbnailRowLayout: React.FC<Props> = ({
             {date}
           </p>
         </div>
-        <div
-          className={`min-h-[100px] w-[100px] flex-shrink-0 overflow-hidden rounded-lg`}
-        >
-          <img
+        <div className={`flex-shrink-0 overflow-hidden rounded-lg`}>
+          <SkeletonImage
             src={thumbnailUrl}
-            alt={title}
-            className={`h-full w-full object-cover`}
+            height="100px"
+            width="100px"
+            className="min-h-[100px] object-cover"
           />
         </div>
       </div>

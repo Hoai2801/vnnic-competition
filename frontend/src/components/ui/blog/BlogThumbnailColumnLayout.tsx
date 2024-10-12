@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import SkeletonImage from "../skeleton/SkeletonImage";
 
 interface Props {
   thumbnailUrl: string;
@@ -26,12 +27,12 @@ const BlogThumbnailColumnLayout: React.FC<Props> = ({
         className={`${isMain ? "lg:w-[600px]" : "lg:w-[600px] xl:w-[340px]"}`}
       >
         <div
-          className={`flex h-[240px] items-center justify-center overflow-hidden rounded-md ${isMain ? "xl:h-[340px]" : "h-[240px]"}`}
+          className={`flex items-center justify-center overflow-hidden rounded-md`}
         >
-          <img
+          <SkeletonImage
             src={thumbnailUrl}
-            alt={title}
-            className={`h-full w-full object-cover`}
+            height={isMain ? "340px" : "240px"}
+            className={`h-[240px] w-full object-cover ${isMain ? "xl:h-[340px]" : "h-[240px]"}`}
           />
         </div>
         <div className={`flex max-w-2xl flex-col gap-2 py-4`}>

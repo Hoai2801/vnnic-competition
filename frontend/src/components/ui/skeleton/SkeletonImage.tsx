@@ -1,84 +1,48 @@
-import React, { useEffect, useRef, useState } from "react";
-import Skeleton from "./Skeleton";
+import { motion } from "framer-motion";
+import React, { useState } from "react";
+import styles from "./SkeletonImage.module.css";
 
-interface SkeletonProps {
+interface SkeletonImageProps {
   src: string;
-  height?: number;
-  width?: number;
-  additionalClassNames?: string;
+  height?: string;
+  width?: string;
+  className?: string;
 }
 
-const SkeletonImage: React.FC<SkeletonProps> = ({
+export default function SkeletonImage({
   src,
-  height: initialHeight,
-  width: initialWidth,
-  additionalClassNames,
-}) => {
-  const imgRef = useRef<HTMLImageElement>(null);
-  const [height, setHeight] = useState<number>(initialHeight || 0);
-  const [width, setWidth] = useState<number>(initialWidth || 0);
-  const [isLoading, setIsLoading] = useState(true);
+  height = "16rem",
+  width = "100%",
+  className: additionalClassNames,
+}: SkeletonImageProps) {
+  const [imageLoading, setImageLoading] = useState(true);
+  const [pulsing, setPulsing] = useState(true);
+  const classNames = additionalClassNames ? `${additionalClassNames}` : "";
 
-  useEffect(() => {
-    const img = new Image();
-    img.src = src;
-    img.onload = () => {
-      setIsLoading(false);
-      if (imgRef.current) {
-        setHeight(imgRef.current.naturalHeight);
-      }
-    };
-
-    const handleLoad = () => {
-      if (imgRef.current) {
-        setHeight(imgRef.current.naturalHeight);
-        setWidth(imgRef.current.naturalWidth);
-        setIsLoading(false);
-      }
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting && imgRef.current) {
-          if (imgRef.current.complete) {
-            handleLoad();
-            observer.unobserve(entry.target);
-          } else {
-            imgRef.current.addEventListener("load", handleLoad);
-          }
-        }
-      });
-    });
-
-    if (imgRef.current) observer.observe(imgRef.current);
-
-    return () => {
-      if (observer && imgRef.current) {
-        observer.unobserve(imgRef.current);
-        imgRef.current.removeEventListener("load", handleLoad);
-      }
-    };
-  }, [src]);
+  const imageLoaded = () => {
+    setImageLoading(false);
+    setTimeout(() => setPulsing(false), 600);
+  };
 
   return (
-    <>
-      {isLoading ? (
-        <Skeleton
-          className={additionalClassNames || ""}
-          height={height}
-          width={width}
-        />
-      ) : (
-        <img
-          ref={imgRef}
-          src={src}
-          alt="Loaded content"
-          onLoad={() => setIsLoading(false)}
-          onError={() => setIsLoading(true)}
-        />
-      )}
-    </>
+    <div
+      className={`${pulsing ? styles.pulse : ""} ${styles.loadable}`}
+      style={{ width: width, background: "#ccc" }}
+    >
+      <motion.img
+        initial={{ height, opacity: 0 }}
+        animate={{
+          height: imageLoading ? height : "",
+          opacity: imageLoading ? 0 : 1,
+        }}
+        transition={{
+          height: { delay: 0, duration: 0.4 },
+          opacity: { delay: 0.5, duration: 0.4 },
+        }}
+        onLoad={imageLoaded}
+        src={src}
+        className={classNames}
+      />
+    </div>
   );
-};
-
-export default SkeletonImage;
+}

@@ -7,10 +7,9 @@ import {
 import Loading from "./components/common/loading/Loading";
 import Layout from "./components/layout/Layout";
 import { ToastProvider } from "./components/ui/toast/ToastContext";
-import BlogLayout from "./pages/detail/BlogLayout";
 import AdminLayout from "./pages/admin/AdminLayout";
 import UploadBlog from "./pages/admin/UploadBlog";
-
+import BlogLayout from "./pages/detail/BlogLayout";
 
 const Home = lazy(() => import("./pages/Home"));
 const Notfound = lazy(() => import("./pages/notfound/Notfound"));
@@ -57,6 +56,8 @@ export default function App() {
           <BlogLayout />
         </Layout>
       ),
+    },
+    {
       path: "/admin",
       element: <AdminLayout />,
       children: [
