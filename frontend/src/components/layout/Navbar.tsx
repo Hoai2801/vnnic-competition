@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { AnimatePresence, motion, useScroll, useSpring } from "framer-motion";
+import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/logo.webp";
 import Modal from "../ui/Modal";
@@ -13,11 +14,19 @@ interface NavItem {
 export default function Navbar() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [visible, setVisible] = useState(false);
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
   const openSidebar = () => setIsSidebarOpen(true);
   const closeSidebar = () => setIsSidebarOpen(false);
+
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001,
+  });
 
   const navItems: NavItem[] = [
     { to: "/", children: "Trang chủ" },
@@ -27,9 +36,40 @@ export default function Navbar() {
     { to: "/d", children: "Hoạt động đoàn" },
   ];
 
+  useEffect(() => {
+    const handleScroll = () =>
+      window.scrollY > 50 ? setVisible(true) : setVisible(false);
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const variants = {
+    initial: { opacity: 0, zIndex: -1 },
+    enter: { opacity: 1, zIndex: 40 },
+    exit: { opacity: 0, zIndex: -1 },
+  };
+
   return (
     <>
-      <div className="sticky top-0 z-10 border-b bg-white px-4 transition-colors dark:bg-dark dark:text-white">
+      <AnimatePresence>
+        {visible && (
+          <motion.div
+            initial="initial"
+            animate="enter"
+            exit="exit"
+            variants={variants}
+            transition={{ duration: 0.3 }}
+            style={{ scaleX }}
+            className="fixed left-0 right-0 top-[60px] h-px origin-left bg-red-500 md:top-[70px]"
+          />
+        )}
+      </AnimatePresence>
+
+      <div className="sticky top-0 z-30 border-b bg-white px-4 transition-colors dark:bg-dark dark:text-white">
         <div className="container flex h-[60px] items-center justify-between md:h-[70px]">
           <div className="flex items-center gap-2">
             <Link to={"/"}>
@@ -42,7 +82,7 @@ export default function Navbar() {
                   to={item.to}
                   className={({ isActive, isPending, isTransitioning }) =>
                     [
-                      "text-nowrap p-2 transition-colors hover:text-indigo-600",
+                      "text-nowrap p-2 font-semibold transition-colors hover:text-indigo-600",
                       isPending ? "pending" : "",
                       isActive ? "text-indigo-600" : "",
                       isTransitioning ? "transitioning" : "",

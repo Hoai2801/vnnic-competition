@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import BlogThumbnailColumnLayout from "./BlogThumbnailColumnLayout";
 import BlogThumbnailRowLayout from "./BlogThumbnailRowLayout";
 
@@ -106,50 +106,54 @@ const GroupPostsByCategory = () => {
   ]);
 
   return (
-    <div className={`mx-auto flex w-full flex-col gap-4`}>
+    <div className={`mx-auto flex w-full flex-col gap-4 py-4`}>
       {/* <h2 className={`border-y p-4 text-center text-3xl font-bold`}>Tin tức</h2> */}
-      <div className={`flex flex-col justify-center gap-4 lg:flex-row`}>
-        <div className={`flex flex-col gap-4`}>
-          <BlogThumbnailColumnLayout
-            isMain={false}
-            title={posts[1].title}
-            category={posts[1].category}
-            description={posts[1].excerpt}
-            date={posts[1].date}
-            thumbnailUrl={posts[1].coverImage}
-            slug={posts[1].slug}
-          />
-          <BlogThumbnailColumnLayout
-            isMain={false}
-            title={posts[2].title}
-            category={posts[2].category}
-            description={posts[2].excerpt}
-            date={posts[2].date}
-            thumbnailUrl={posts[2].coverImage}
-            slug={posts[2].slug}
-          />
-        </div>
-        <div className={`flex grid-cols-1 flex-col gap-4`}>
-          <BlogThumbnailColumnLayout
-            isMain={true}
-            title={posts[0].title}
-            category={posts[0].category}
-            description={posts[0].excerpt}
-            date={posts[0].date}
-            thumbnailUrl={posts[0].coverImage}
-            slug={posts[0].slug}
-          />
-        </div>
-        <div className={`flex flex-col gap-4 p-2 lg:p-0`}>
-          {posts.slice(3, posts.length).map((post) => (
-            <BlogThumbnailRowLayout
-              key={post.id}
-              thumbnailUrl={post.coverImage}
-              title={post.title}
-              slug={post.slug}
-              date={post.date}
+      <div className={`flex flex-col justify-center gap-8 xl:flex-row`}>
+        <div className="flex flex-col items-center justify-center gap-8 xl:flex-row xl:items-start">
+          <div className={`flex flex-col gap-4`}>
+            <BlogThumbnailColumnLayout
+              isMain={false}
+              title={posts[1].title}
+              category={posts[1].category}
+              description={posts[1].excerpt}
+              date={posts[1].date}
+              thumbnailUrl={posts[1].coverImage}
+              slug={posts[1].slug}
             />
-          ))}
+            <BlogThumbnailColumnLayout
+              isMain={false}
+              title={posts[2].title}
+              category={posts[2].category}
+              description={posts[2].excerpt}
+              date={posts[2].date}
+              thumbnailUrl={posts[2].coverImage}
+              slug={posts[2].slug}
+            />
+          </div>
+          <div className={`flex grid-cols-1 flex-col gap-4`}>
+            <BlogThumbnailColumnLayout
+              isMain={true}
+              title={posts[0].title}
+              category={posts[0].category}
+              description={posts[0].excerpt}
+              date={posts[0].date}
+              thumbnailUrl={posts[0].coverImage}
+              slug={posts[0].slug}
+            />
+          </div>
+        </div>
+        <div className="w-full justify-center lg:flex">
+          <div className={`flex flex-col gap-4 p-2 lg:p-0`}>
+            {posts.slice(3, posts.length).map((post) => (
+              <BlogThumbnailRowLayout
+                key={post.id}
+                thumbnailUrl={post.coverImage}
+                title={post.title}
+                slug={post.slug}
+                date={post.date}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </div>

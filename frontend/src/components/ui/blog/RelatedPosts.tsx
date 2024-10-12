@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import BlogThumbnailRowLayout from "./BlogThumbnailRowLayout";
 
 interface Post {
@@ -36,25 +36,27 @@ const RelatedPosts = () => {
       date: "01/01/2023",
       coverImage:
         "https://tuoitredaihocdonga.org.vn/wp-content/uploads/2024/10/Blue-Gradient-Artificial-Intelligence-Digital-Transformation-Futuristic-Illustrative-Infographic-2.png",
-    }
+    },
   ]);
   return (
-    <div className={`bg-white dark:bg-gray-700 rounded-2xl p-4 shadow-lg sticky top-20`}>
-      <h2 className={`text-2xl font-semibold mb-4 border-b-4 border-b-blue-400 p-2 w-fit`}>Bài viết liên quan</h2>
+    <div className={`sticky top-20 rounded-2xl bg-white p-4 dark:bg-gray-700`}>
+      <h2
+        className={`mb-4 w-fit border-b-4 border-b-blue-400 p-2 text-2xl font-semibold`}
+      >
+        Bài viết liên quan
+      </h2>
       <div className={`grid grid-cols-1 gap-4`}>
-        {
-          posts.map((post) => (
-            <div className={`border-b-2 border-gray-200 p-2`}>
-              <BlogThumbnailRowLayout
-                key={post.id}
-                title={post.title}
-                thumbnailUrl={post.coverImage}
-                slug={post.slug}
-                date={post.date}
-              />
-            </div>
-          ))
-        }
+        {posts.map((post) => (
+          <div className={`border-b-2 border-gray-200 p-2`}>
+            <BlogThumbnailRowLayout
+              key={post.id}
+              title={post.title}
+              thumbnailUrl={post.coverImage}
+              slug={post.slug}
+              date={post.date}
+            />
+          </div>
+        ))}
       </div>
     </div>
   );

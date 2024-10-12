@@ -16,11 +16,12 @@ const BlogThumbnailRowLayout: React.FC<Props> = ({
 }) => {
   return (
     <Link to={`/blog/${slug}`}>
-      <div className={`flex justify-between`}>
+      <div
+        className={`flex justify-between border-t border-gray-500 pt-4 lg:w-[600px] xl:w-auto`}
+      >
         <div className={`flex max-w-xl flex-col gap-2`}>
-          <p className={`text-sm font-medium lg:w-[300px] dark:text-white`}>{title}</p>
+          <p className={`text-sm font-medium dark:text-white`}>{title}</p>
           <p className={`flex items-center gap-1 text-gray-500`}>
-            {/* clock icon */}
             <span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
