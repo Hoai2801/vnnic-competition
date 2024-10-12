@@ -42,7 +42,13 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
-              transition={{ duration: 0.3 }}
+              transition={{
+                duration: 0.3,
+                type: "spring",
+                damping: 10,
+                stiffness: 100,
+                mass: 0.5,
+              }}
               className="relative h-full w-64 overflow-y-auto border-l border-gray-500 bg-white p-6 shadow-lg dark:bg-dark dark:text-white"
             >
               <button

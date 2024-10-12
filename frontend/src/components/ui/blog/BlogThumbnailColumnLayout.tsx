@@ -34,9 +34,9 @@ const BlogThumbnailColumnLayout: React.FC<Props> = ({
             className={`h-full w-full object-cover`}
           />
         </div>
-        <div className={`flex max-w-2xl flex-col gap-2 p-2`}>
+        <div className={`flex max-w-2xl flex-col gap-2 py-4`}>
           <p
-            className={`w-fit rounded-3xl bg-[#D3AA7E] px-3 py-1 text-sm font-semibold text-white`}
+            className={`w-fit rounded-full bg-[#D3AA7E] px-3 py-1 text-sm font-semibold text-white`}
           >
             {category}
           </p>
