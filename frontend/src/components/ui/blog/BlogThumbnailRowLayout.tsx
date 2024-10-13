@@ -18,7 +18,7 @@ const BlogThumbnailRowLayout: React.FC<Props> = ({
   return (
     <Link to={`/blog/${slug}`}>
       <div
-        className={`flex justify-between gap-4 border-t border-gray-300 pt-4 lg:w-[600px] xl:w-auto`}
+        className={`flex justify-between gap-4 border-t border-gray-300 pt-4 xl:w-auto`}
       >
         <div className={`flex max-w-xl flex-col gap-2`}>
           <p className={`line-clamp-4 text-sm font-medium dark:text-white`}>

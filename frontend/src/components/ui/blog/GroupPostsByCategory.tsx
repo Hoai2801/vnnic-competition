@@ -159,8 +159,8 @@ const GroupPostsByCategory = () => {
     //     </div>
     //   </div>
     // </div>\
-    <div className="container flex w-full flex-col justify-center gap-10 md:flex-row">
-      <div className="flex flex-col gap-4 md:w-3/5">
+    <div className="container flex w-full flex-col justify-center gap-10 lg:flex-row">
+      <div className="flex flex-col gap-4 lg:w-3/5">
         <SkeletonImage
           height="240px"
           src={posts[0].coverImage}
@@ -186,14 +186,14 @@ const GroupPostsByCategory = () => {
             {posts[0].date}
           </p>
         </div>
-        <p className="line-clamp-2 text-center font-semibold">
+        <p className="text-md line-clamp-2 text-center font-semibold md:text-2xl">
           {posts[0].title}
         </p>
         <p className="line-clamp-3 text-balance text-center text-sm">
           {posts[0].excerpt}
         </p>
       </div>
-      <div className="rounded-2xl bg-gray-100 p-4 dark:bg-gray-800 md:w-2/6">
+      <div className="rounded-2xl bg-gray-100 p-4 dark:bg-gray-800 lg:w-2/6">
         <div className="relative py-4 font-neue text-2xl font-bold">
           Trending Now
           <div className="absolute h-0.5 w-8 bg-sky-500"></div>
