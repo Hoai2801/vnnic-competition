@@ -1,5 +1,5 @@
 import { motion, useScroll, useSpring } from "framer-motion";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/logo.webp";
 import Modal from "../ui/Modal";
@@ -14,7 +14,6 @@ interface NavItem {
 export default function Navbar() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [visible, setVisible] = useState(false);
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
@@ -35,17 +34,6 @@ export default function Navbar() {
     { to: "/c", children: "Thông báo" },
     { to: "/d", children: "Hoạt động đoàn" },
   ];
-
-  useEffect(() => {
-    const handleScroll = () =>
-      window.scrollY > 50 ? setVisible(true) : setVisible(false);
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
 
   const variants = {
     initial: { opacity: 0, zIndex: -1 },
