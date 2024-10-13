@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 export default function Topbar() {
   const [letterIndex, setLetterIndex] = useState<number>(0);
@@ -19,7 +19,8 @@ export default function Topbar() {
     },
     {
       id: 1,
-      title: "lore rfgfsdgsdfgsdgshghjhjgjgjgjgm",
+      title:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore rfgfsdgsdfgsdgshghjhjgjgjgjgm",
       category: "Tin 1",
       excerpt:
         "Nhân dịp Kỷ niệm Ngày Chuyển đổi số Quốc gia 2024, Đoàn Thanh Niên Trường Đại học Đông Á chính th.rpm phát động Cuộc thi Tracular...",
@@ -30,7 +31,7 @@ export default function Topbar() {
     },
   ];
 
-  React.useEffect(() => {
+  useEffect(() => {
     const interval = setInterval(() => {
       setLetterIndex((letterIndex + 1) % posts.length);
     }, 10000);
@@ -53,20 +54,25 @@ export default function Topbar() {
                 className="fill-white"
               />
             </svg>
-            <p className="font-neue text-sm font-bold">Popular</p>
+            <p className="hidden font-neue text-sm font-bold md:block">
+              Popular
+            </p>
             <AnimatePresence mode="wait">
               <motion.div
                 key={posts[letterIndex].id}
-                initial={{ opacity: 0, y: -50 }}
+                initial={{ opacity: 0, y: -30 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 50 }}
-                transition={{ duration: 0.3 }}
+                exit={{ opacity: 0, y: 30 }}
+                transition={{
+                  duration: 0.3,
+                  type: "spring",
+                  stiffness: 300,
+                  damping: 40,
+                  mass: 1,
+                }}
                 className="ml-1 flex items-center gap-2"
               >
-                <p
-                  className="truncate text-sm"
-                  style={{ maxWidth: "calc(100vw - 180px)" }}
-                >
+                <p className="max-w-[calc(100vw-140px)] truncate text-sm md:max-w-[calc(100vw-240px)]">
                   {posts[letterIndex].title}
                 </p>
               </motion.div>
