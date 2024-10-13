@@ -1,9 +1,5 @@
-import { lazy, Suspense, useEffect } from "react";
-import {
-  createBrowserRouter,
-  RouterProvider,
-  useLocation,
-} from "react-router-dom";
+import { lazy, Suspense } from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Loading from "./components/common/loading/Loading";
 import Layout from "./components/layout/Layout";
 import { ToastProvider } from "./components/ui/toast/ToastContext";
@@ -21,16 +17,6 @@ export default function App() {
     const savedTheme = localStorage.getItem("theme") || "light";
     document.documentElement.classList.add(savedTheme);
   })();
-
-  const ScrollToTop = () => {
-    const { pathname } = useLocation();
-
-    useEffect(() => {
-      window.scrollTo(0, 0);
-    }, [pathname]);
-
-    return null;
-  };
 
   const router = createBrowserRouter([
     {
@@ -76,9 +62,7 @@ export default function App() {
   return (
     <ToastProvider>
       <Suspense fallback={<Loading />}>
-        <RouterProvider router={router}>
-          <ScrollToTop />
-        </RouterProvider>
+        <RouterProvider router={router}></RouterProvider>
       </Suspense>
     </ToastProvider>
   );

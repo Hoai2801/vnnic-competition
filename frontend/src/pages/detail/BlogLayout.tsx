@@ -4,7 +4,7 @@ import BlogDetailContent from "./BlogDetailContent";
 
 const BlogLayout = () => {
   return (
-    <div className={`flex grid-cols-3 flex-col gap-4 lg:grid`}>
+    <div className={`container flex grid-cols-3 flex-col gap-4 px-4 lg:grid`}>
       <div className={`col-span-2`}>
         <BlogDetailContent />
         <div className="flex items-center gap-2">

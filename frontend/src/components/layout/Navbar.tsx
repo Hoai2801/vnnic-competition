@@ -148,7 +148,7 @@ export default function Navbar() {
           variants={variants}
           transition={{ duration: 0.15 }}
           style={{ scaleX }}
-          className={`absolute bottom-0 left-0 right-0 h-0.5 origin-left bg-sky-500`}
+          className={`absolute bottom-0 left-0 right-0 h-0.5 origin-left bg-indigo-500`}
         />
       </div>
       <Modal isOpen={isModalOpen} onClose={closeModal}>

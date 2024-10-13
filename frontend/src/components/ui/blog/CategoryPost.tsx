@@ -6,8 +6,18 @@ interface Props {
   header: string;
 }
 
+interface Post {
+  id: number;
+  title: string;
+  category: string;
+  excerpt: string;
+  slug: string;
+  date: string;
+  coverImage: string;
+}
+
 export default function CategoryPost({ header }: Props) {
-  const posts = [
+  const posts: Post[] = [
     {
       id: 0,
       title:
