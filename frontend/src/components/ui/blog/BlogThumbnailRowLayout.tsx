@@ -42,7 +42,7 @@ const BlogThumbnailRowLayout: React.FC<Props> = ({
             src={thumbnailUrl}
             height="100px"
             width="100px"
-            className="min-h-[100px] object-cover"
+            className="aspect-square min-h-[100px] object-cover"
           />
         </div>
       </div>

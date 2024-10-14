@@ -29,7 +29,7 @@ export default function Navbar() {
 
   const navItems: NavItem[] = [
     { to: "/", children: "Trang chủ" },
-    { to: "/a", children: "Tin tức" },
+    { to: "/blog", children: "Tin tức" },
     { to: "/b", children: "Sự kiện" },
     { to: "/c", children: "Thông báo" },
     { to: "/d", children: "Hoạt động đoàn" },

@@ -23,7 +23,7 @@ const GroupPostsByCategory = () => {
       slug: "tin-1",
       date: "01/01/2023",
       coverImage:
-        "https://tuoitredaihocdonga.org.vn/wp-content/uploads/2024/10/Blue-Gradient-Artificial-Intelligence-Digital-Transformation-Futuristic-Illustrative-Infographic-2.png",
+        "https://images.unsplash.com/photo-1726925793996-8e478b4f99ee?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
       id: 1,
@@ -35,7 +35,7 @@ const GroupPostsByCategory = () => {
       slug: "tin-1",
       date: "01/01/2023",
       coverImage:
-        "https://tuoitredaihocdonga.org.vn/wp-content/uploads/2024/10/Blue-Gradient-Artificial-Intelligence-Digital-Transformation-Futuristic-Illustrative-Infographic-2.png",
+        "https://images.unsplash.com/photo-1721332154161-847851ea188b?q=80&w=1335&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
       id: 2,
@@ -46,7 +46,7 @@ const GroupPostsByCategory = () => {
       slug: "tin-2",
       date: "10/09/2023",
       coverImage:
-        "https://tuoitredaihocdonga.org.vn/wp-content/uploads/2024/10/Blue-Gradient-Artificial-Intelligence-Digital-Transformation-Futuristic-Illustrative-Infographic-2.png",
+        "https://images.unsplash.com/photo-1728327510702-86c52e229265?q=80&w=1336&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
       id: 3,
@@ -57,7 +57,7 @@ const GroupPostsByCategory = () => {
       slug: "tin-3",
       date: "15/08/2023",
       coverImage:
-        "https://tuoitredaihocdonga.org.vn/wp-content/uploads/2024/10/Blue-Gradient-Artificial-Intelligence-Digital-Transformation-Futuristic-Illustrative-Infographic-2.png",
+        "https://images.unsplash.com/photo-1728314167652-dc3c8848dd80?q=80&w=1365&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
       id: 4,
@@ -68,7 +68,7 @@ const GroupPostsByCategory = () => {
       slug: "tin-4",
       date: "22/07/2023",
       coverImage:
-        "https://tuoitredaihocdonga.org.vn/wp-content/uploads/2024/10/Blue-Gradient-Artificial-Intelligence-Digital-Transformation-Futuristic-Illustrative-Infographic-2.png",
+        "https://plus.unsplash.com/premium_photo-1728732954838-f1a7ec7fce46?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
       id: 5,

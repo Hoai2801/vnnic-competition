@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import SkeletonImage from "../skeleton/SkeletonImage";
 
+interface Post {
+  id: number;
+  title: string;
+  category: string;
+  excerpt: string;
+  slug: string;
+  date: string;
+  coverImage: string;
+}
+
 export default function LatestBlog() {
-  const posts = [
+  const [posts, setPosts] = useState<Post[]>([
     {
       id: 0,
       title:
@@ -14,7 +24,7 @@ export default function LatestBlog() {
       slug: "tin-1",
       date: "01/01/2023",
       coverImage:
-        "https://tuoitredaihocdonga.org.vn/wp-content/uploads/2024/10/Blue-Gradient-Artificial-Intelligence-Digital-Transformation-Futuristic-Illustrative-Infographic-2.png",
+        "https://images.unsplash.com/photo-1728321406248-8b24f68d869d?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
       id: 1,
@@ -71,7 +81,8 @@ export default function LatestBlog() {
       excerpt: "This is a short excerpt for the new post 5.",
       slug: "tin-6",
       date: "06/01/2023",
-      coverImage: "https://example.com/image5.png",
+      coverImage:
+        "https://images.unsplash.com/photo-1728346752157-f2e57a245650?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
       id: 7,
@@ -82,11 +93,11 @@ export default function LatestBlog() {
       date: "07/01/2023",
       coverImage: "https://example.com/image6.png",
     },
-  ];
+  ]);
 
   return (
     <div className="min-h-screen w-full text-white">
-      <div className="flex items-center justify-center bg-black">
+      <div className="flex items-center justify-center bg-black dark:bg-gray-900">
         <div className="container flex w-full flex-col p-4 py-20">
           <div className="flex w-full items-center justify-between border-b border-gray-300 pb-4">
             <p className="text-2xl font-bold">Tin mới</p>

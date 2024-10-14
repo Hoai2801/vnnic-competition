@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import SkeletonImage from "../skeleton/SkeletonImage";
 
@@ -17,7 +17,7 @@ interface Post {
 }
 
 export default function CategoryPost({ header }: Props) {
-  const posts: Post[] = [
+  const [posts, setPosts] = useState<Post[]>([
     {
       id: 0,
       title:
@@ -28,7 +28,7 @@ export default function CategoryPost({ header }: Props) {
       slug: "tin-1",
       date: "01/01/2023",
       coverImage:
-        "https://tuoitredaihocdonga.org.vn/wp-content/uploads/2024/10/Blue-Gradient-Artificial-Intelligence-Digital-Transformation-Futuristic-Illustrative-Infographic-2.png",
+        "https://images.unsplash.com/photo-1720048169707-a32d6dfca0b3?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
       id: 1,
@@ -40,7 +40,7 @@ export default function CategoryPost({ header }: Props) {
       slug: "tin-1",
       date: "01/01/2023",
       coverImage:
-        "https://tuoitredaihocdonga.org.vn/wp-content/uploads/2024/10/Blue-Gradient-Artificial-Intelligence-Digital-Transformation-Futuristic-Illustrative-Infographic-2.png",
+        "https://images.unsplash.com/photo-1728495145469-f0bcbda1dfa5?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
       id: 2,
@@ -49,7 +49,8 @@ export default function CategoryPost({ header }: Props) {
       excerpt: "This is a short excerpt for the new post 1.",
       slug: "tin-2",
       date: "02/01/2023",
-      coverImage: "https://example.com/image1.png",
+      coverImage:
+        "https://images.unsplash.com/photo-1727950183920-654c2feee258?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
       id: 3,
@@ -58,9 +59,10 @@ export default function CategoryPost({ header }: Props) {
       excerpt: "This is a short excerpt for the new post 2.",
       slug: "tin-3",
       date: "03/01/2023",
-      coverImage: "https://example.com/image2.png",
+      coverImage:
+        "https://images.unsplash.com/photo-1728155288820-eadfefa52394?q=80&w=1312&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
-  ];
+  ]);
 
   return (
     <div className="flex w-full flex-col gap-4 py-12">
