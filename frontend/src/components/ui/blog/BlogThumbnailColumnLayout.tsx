@@ -40,12 +40,12 @@ const BlogThumbnailColumnLayout: React.FC<Props> = ({
             {category}
           </p>
           <h1
-            className={`text-sm font-bold ${isMain ? "xl:text-2xl" : "text-sm"}`}
+            className={`line-clamp-3 text-sm font-bold ${isMain ? "xl:text-2xl" : "text-sm"}`}
           >
             {title}
           </h1>
           <p
-            className={` ${isMain ? "lg:block xl:text-base" : "xl:hidden"} text-sm`}
+            className={` ${isMain ? "lg:block xl:text-base" : "xl:hidden"} line-clamp-4 text-sm`}
           >
             {description}
           </p>
