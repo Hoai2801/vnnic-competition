@@ -43,16 +43,16 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{
-                duration: 0.3,
+                duration: 0.5,
                 type: "spring",
-                damping: 10,
-                stiffness: 100,
-                mass: 0.5,
+                damping: 15,
+                stiffness: 120,
+                mass: 0.8,
               }}
               className="relative h-full w-64 overflow-y-auto border-l border-gray-500 bg-white p-6 shadow-lg dark:bg-dark dark:text-white"
             >
               <button
-                onClick={onClose}
+                onClick={() => onClose()}
                 className="absolute -top-1 right-2 text-4xl"
               >
                 &times;
@@ -65,12 +65,11 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
                   <NavLink
                     key={item.to}
                     to={item.to}
-                    className={({ isActive, isPending, isTransitioning }) =>
+                    onClick={() => onClose()}
+                    className={({ isActive }) =>
                       [
                         "text-nowrap border-b border-gray-500 p-2 transition-colors hover:text-indigo-600",
-                        isPending ? "pending" : "",
                         isActive ? "text-indigo-600" : "",
-                        isTransitioning ? "transitioning" : "",
                       ].join(" ")
                     }
                   >
@@ -79,7 +78,9 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
                 ))}
               </div>
               <div className="absolute bottom-6 w-52 border-t border-black bg-white pr-4 pt-4 dark:bg-dark">
-                <Link to="/login">Login</Link>
+                <Link to="/login" onClick={() => onClose()}>
+                  Login
+                </Link>
               </div>
             </motion.div>
           </div>

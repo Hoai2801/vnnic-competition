@@ -55,12 +55,10 @@ export default function Navbar() {
                   <NavLink
                     key={item.to}
                     to={item.to}
-                    className={({ isActive, isPending, isTransitioning }) =>
+                    className={({ isActive }) =>
                       [
                         "text-nowrap p-2 font-semibold transition-colors hover:text-indigo-600",
-                        isPending ? "pending" : "",
                         isActive ? "text-indigo-600" : "",
-                        isTransitioning ? "transitioning" : "",
                       ].join(" ")
                     }
                   >
