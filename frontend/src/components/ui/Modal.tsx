@@ -30,7 +30,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
                 initial={{ scale: 0.5 }}
                 animate={{ scale: 1 }}
                 exit={{ scale: 0.8 }}
-                className="relative mx-4 flex items-center justify-center rounded border border-gray-500 bg-white p-6 shadow-lg dark:bg-dark"
+                className="relative mx-4 flex cursor-move items-center justify-center rounded border border-gray-500 bg-white p-6 shadow-lg dark:bg-dark"
               >
                 <button
                   onClick={onClose}
