@@ -73,7 +73,7 @@ const GroupPostsByCategory = ( {header} : {header: string}) => {
   return (
     <div className={`mx-auto flex w-full flex-col gap-4`}>
       <h2 className={`mb-2 border-y p-4 text-center text-3xl font-bold`}>
-        Tin tức
+        {header}
       </h2>
       <div className={`flex flex-col justify-center gap-8 xl:flex-row`}>
         <div className="flex flex-col items-center justify-center gap-8 xl:flex-row xl:items-start">

@@ -13,12 +13,6 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 public class CategoryResponse {
-    @JsonProperty("message")
-    private String message;
-
-    @JsonProperty("errors")
-    private List<String> errors;
-
-    @JsonProperty("category")
-    private Category category;
+    private long id;
+    private String name;
 }

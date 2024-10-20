@@ -8,7 +8,7 @@ export default function Home() {
     <Transition>
       <div className="flex w-full flex-col items-center justify-center gap-4">
         <div className="container px-4 py-2">
-          <GroupPostsByCategory header="Tin tức" />
+          <GroupPostsByCategory header="Tin mới" />
           <CategoryPost header="Spotlight" />
         </div>
         {/*<LatestBlog />*/}
