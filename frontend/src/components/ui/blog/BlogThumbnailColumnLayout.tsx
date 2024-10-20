@@ -23,14 +23,14 @@ const BlogThumbnailColumnLayout: React.FC<Props> = ({
 }) => {
   return (
     <Link to={`/blog/${slug}`}>
-      <div className={`${isMain ? "xl:w-[600px]" : "xl:w-[340px]"}`}>
+      <div className={`${isMain ? "xl:w-[700px]" : "xl:w-[340px]"}`}>
         <div
           className={`flex items-center justify-center overflow-hidden rounded-md`}
         >
           <SkeletonImage
             src={thumbnailUrl}
             height={isMain ? "340px" : "240px"}
-            className={`h-[240px] w-full object-cover ${isMain ? "xl:h-[340px]" : "h-[240px]"}`}
+            className={`h-[240px] w-full object-cover ${isMain ? "xl:h-[540px]" : "h-[240px]"}`}
           />
         </div>
         <div className={`flex max-w-2xl flex-col gap-2 py-4`}>

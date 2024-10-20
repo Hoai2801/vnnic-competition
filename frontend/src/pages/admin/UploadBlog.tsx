@@ -38,7 +38,7 @@ import {
   LinkImage,
   List,
   ListProperties,
-  Markdown,
+  // Markdown,
   MediaEmbed,
   Mention,
   PageBreak,
@@ -73,26 +73,19 @@ import {
 import "ckeditor5/ckeditor5.css";
 import React, { useEffect, useRef, useState } from "react";
 import "./UploadBlog.css";
+
+interface Category {
+  id: number;
+  name: string;
+}
 const UploadBlog = () => {
-  const mockCategories = [
-    {
-      id: 1,
-      name: "Category 1",
-    },
-    {
-      id: 2,
-      name: "Category 2",
-    },
-    {
-      id: 3,
-      name: "Category 3",
-    },
-  ];
+  const [categories, setCategories] = useState<Category[]>([]);
 
   const [blog, setBlog] = useState({
     title: "",
     category: "",
     content: "",
+    excerpt: "",
     image: "",
   });
 
@@ -100,9 +93,28 @@ const UploadBlog = () => {
   const editorRef = useRef(null);
   const [isLayoutReady, setIsLayoutReady] = useState(false);
 
+  const [file, setFile] = useState();
+  function handleChange(e) {
+    setFile(e.target.files[0]);
+  }
+
   useEffect(() => {
     setIsLayoutReady(true);
-
+    fetch('http://localhost:8080/categories', {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setCategories(data)
+      });
+      // .then((data) => {
+      //   console.log(data);
+      //   setCategories(data)
+      // });
     return () => setIsLayoutReady(false);
   }, []);
 
@@ -177,7 +189,7 @@ const UploadBlog = () => {
       LinkImage,
       List,
       ListProperties,
-      Markdown,
+      // Markdown,
       MediaEmbed,
       Mention,
       PageBreak,
@@ -284,8 +296,8 @@ const UploadBlog = () => {
         "resizeImage",
       ],
     },
-    initialData:
-      '<h2>Congratulations on setting up CKEditor 5! 🎉</h2>\n<p>\n    You\'ve successfully created a CKEditor 5 project. This powerful text editor will enhance your application, enabling rich text editing\n    capabilities that are customizable and easy to use.\n</p>\n<h3>What\'s next?</h3>\n<ol>\n    <li>\n        <strong>Integrate into your app</strong>: time to bring the editing into your application. Take the code you created and add to your\n        application.\n    </li>\n    <li>\n        <strong>Explore features:</strong> Experiment with different plugins and toolbar options to discover what works best for your needs.\n    </li>\n    <li>\n        <strong>Customize your editor:</strong> Tailor the editor\'s configuration to match your application\'s style and requirements. Or even\n        write your plugin!\n    </li>\n</ol>\n<p>\n    Keep experimenting, and don\'t hesitate to push the boundaries of what you can achieve with CKEditor 5. Your feedback is invaluable to us\n    as we strive to improve and evolve. Happy editing!\n</p>\n<h3>Helpful resources</h3>\n<ul>\n    <li>📝 <a href="https://orders.ckeditor.com/trial/premium-features">Trial sign up</a>,</li>\n    <li>📕 <a href="https://ckeditor.com/docs/ckeditor5/latest/installation/index.html">Documentation</a>,</li>\n    <li>⭐️ <a href="https://github.com/ckeditor/ckeditor5">GitHub</a> (star us if you can!),</li>\n    <li>🏠 <a href="https://ckeditor.com">CKEditor Homepage</a>,</li>\n    <li>🧑‍💻 <a href="https://ckeditor.com/ckeditor-5/demo/">CKEditor 5 Demos</a>,</li>\n</ul>\n<h3>Need help?</h3>\n<p>\n    See this text, but the editor is not starting up? Check the browser\'s console for clues and guidance. It may be related to an incorrect\n    license key if you use premium features or another feature-related requirement. If you cannot make it work, file a GitHub issue, and we\n    will help as soon as possible!\n</p>\n',
+    // initialData:
+    //   '<h2>Congratulations on setting up CKEditor 5! 🎉</h2>\n<p>\n    You\'ve successfully created a CKEditor 5 project. This powerful text editor will enhance your application, enabling rich text editing\n    capabilities that are customizable and easy to use.\n</p>\n<h3>What\'s next?</h3>\n<ol>\n    <li>\n        <strong>Integrate into your app</strong>: time to bring the editing into your application. Take the code you created and add to your\n        application.\n    </li>\n    <li>\n        <strong>Explore features:</strong> Experiment with different plugins and toolbar options to discover what works best for your needs.\n    </li>\n    <li>\n        <strong>Customize your editor:</strong> Tailor the editor\'s configuration to match your application\'s style and requirements. Or even\n        write your plugin!\n    </li>\n</ol>\n<p>\n    Keep experimenting, and don\'t hesitate to push the boundaries of what you can achieve with CKEditor 5. Your feedback is invaluable to us\n    as we strive to improve and evolve. Happy editing!\n</p>\n<h3>Helpful resources</h3>\n<ul>\n    <li>📝 <a href="https://orders.ckeditor.com/trial/premium-features">Trial sign up</a>,</li>\n    <li>📕 <a href="https://ckeditor.com/docs/ckeditor5/latest/installation/index.html">Documentation</a>,</li>\n    <li>⭐️ <a href="https://github.com/ckeditor/ckeditor5">GitHub</a> (star us if you can!),</li>\n    <li>🏠 <a href="https://ckeditor.com">CKEditor Homepage</a>,</li>\n    <li>🧑‍💻 <a href="https://ckeditor.com/ckeditor-5/demo/">CKEditor 5 Demos</a>,</li>\n</ul>\n<h3>Need help?</h3>\n<p>\n    See this text, but the editor is not starting up? Check the browser\'s console for clues and guidance. It may be related to an incorrect\n    license key if you use premium features or another feature-related requirement. If you cannot make it work, file a GitHub issue, and we\n    will help as soon as possible!\n</p>\n',
     link: {
       addTargetToExternalLinks: true,
       defaultProtocol: "https://",
@@ -383,14 +395,14 @@ const UploadBlog = () => {
   function uploadBlog() {
     const formData = new FormData();
     formData.append("category", blog.category);
-    formData.append("content", blog.content);
-    formData.append("image", blog.image);
-    const firstLine = blog.content.split("\n")[0].trim(); // Get the first line and trim it
-    const title = firstLine.startsWith("#")
-      ? firstLine.slice(1).trim()
-      : firstLine;
+    formData.append("excerpt", blog.excerpt);
+    formData.append("content", blog.content.replace(/<h1>.*?<\/h1>/, '').trim());
+    formData.append("image", file);
+    const firstLine = blog.content.match(/<h1>(.*?)<\/h1>/); // Get the first line and trim it
+    const title = firstLine ? firstLine[1] : "";
     formData.append("title", title);
-    fetch("http://localhost:8080/api/v1/blog/create", {
+    console.log(formData);
+    fetch("http://localhost:8080/blog/create", {
       method: "POST",
       body: formData,
     }).then((response) => {
@@ -406,18 +418,33 @@ const UploadBlog = () => {
     <div>
       <h1>Upload Blog</h1>
       <select
-        defaultValue={mockCategories[0].id}
         className="w-full"
         name="category"
         id="category"
+        value={blog.category}
+        onChange={(event) => {
+          setBlog({ ...blog, category: event.target.value });
+        }}
       >
-        {mockCategories.map((category) => (
+        {categories.map((category) => (
           <option key={category.id} value={category.id}>
             {category.name}
           </option>
         ))}
       </select>
-      <input type="image" name="image" id="image" />
+      <h2>Add Image:</h2>
+      <input type="file" onChange={handleChange} />
+      <img src={file} />
+
+      <h3>excerpt:</h3>
+      <textarea
+        name="excerpt"
+        id="excerpt"
+        value={blog.excerpt}
+        onChange={(event) => {
+          setBlog({ ...blog, excerpt: event.target.value });
+        }}
+      ></textarea>
 
       <div className="main-container">
         <div
@@ -433,7 +460,7 @@ const UploadBlog = () => {
                   data={blog.content}
                   onChange={(event, editor) => {
                     const data = editor.getData();
-                    console.log(data);
+                    // console.log(data);
                     setBlog({ ...blog, content: data });
                   }}
                 />

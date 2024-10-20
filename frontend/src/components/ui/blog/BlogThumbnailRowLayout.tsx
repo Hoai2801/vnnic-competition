@@ -13,6 +13,7 @@ const BlogThumbnailRowLayout: React.FC<Props> = ({
   title,
   thumbnailUrl,
   slug,
+  category,
   date,
 }) => {
   return (
@@ -21,6 +22,7 @@ const BlogThumbnailRowLayout: React.FC<Props> = ({
         className={`flex justify-between gap-4 border-t border-gray-300 pt-4 xl:w-auto`}
       >
         <div className={`flex max-w-xl flex-col gap-2`}>
+          <p className={`text-gray-500`}>{category}</p>
           <p className={`line-clamp-4 text-sm font-medium dark:text-white`}>
             {title}
           </p>

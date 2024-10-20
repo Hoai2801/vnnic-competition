@@ -39,7 +39,7 @@ const RelatedPosts = () => {
     },
   ]);
   return (
-    <div className={`sticky top-20 rounded-2xl bg-white p-4 dark:bg-gray-700`}>
+    <div className={`sticky top-32 rounded-2xl bg-white p-4 dark:bg-gray-700`}>
       <h2
         className={`mb-4 w-fit border-b-4 border-b-blue-400 p-2 text-2xl font-semibold`}
       >
@@ -52,6 +52,7 @@ const RelatedPosts = () => {
               key={post.id}
               title={post.title}
               thumbnailUrl={post.coverImage}
+              category={post.category}
               slug={post.slug}
               date={post.date}
             />
