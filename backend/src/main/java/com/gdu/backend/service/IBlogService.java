@@ -13,7 +13,7 @@ public interface IBlogService {
 
     List<Blog> getBlogsByCategoryId(Long id);
 
-    List<Blog> searchBlogs(String keyword);
+    List<BlogResponse> searchBlogs(String keyword);
 
     void create(BlogRequest blog) throws IOException;
 

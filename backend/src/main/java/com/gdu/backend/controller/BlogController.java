@@ -31,7 +31,8 @@ public class BlogController {
     }
     
     @GetMapping("/search")
-    public ResponseEntity<List<Blog>> searchBlogs(String keyword) {
+    public ResponseEntity<List<BlogResponse>> searchBlogs(String keyword) {
+        log.info("keyword value: {}", keyword);
         return ResponseEntity.ok(blogService.searchBlogs(keyword));
     }
     

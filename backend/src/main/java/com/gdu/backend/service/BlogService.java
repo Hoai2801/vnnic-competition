@@ -44,19 +44,16 @@ public class BlogService implements IBlogService {
 
     @Override
     public List<Blog> getBlogsByCategoryId(Long id) {
-        Category category = categoryRepo.findById(id).orElseThrow(() -> new RuntimeException("Category not found"));
-        PageRequest pageable = PageRequest.of(0, 8, Sort.by("id").descending());
         return blogRepo.findAllByCategoryId(id);
     }
 
     @Override
-    public List<Blog> searchBlogs(String keyword) {
+    public List<BlogResponse> searchBlogs(String keyword) {
+        PageRequest pageable = PageRequest.of(0, 8, Sort.by("id").descending());
+        if (keyword != null) {
+            return blogRepo.findAllByTitleContainingOrContentContaining(keyword, pageable).stream().toList();
+        }
         return List.of();
-    }
-
-    @Override
-    public BlogDetailResponse getBlogById(Long id) {
-        return blogRepo.findById(id).map(BlogDetailResponse::from).orElseThrow(() -> new RuntimeException("Blog not found"));
     }
 
     @Override
