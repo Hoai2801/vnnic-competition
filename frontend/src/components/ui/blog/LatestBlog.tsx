@@ -96,8 +96,8 @@ export default function LatestBlog() {
   ]);
 
   return (
-    <div className="min-h-screen w-full text-white">
-      <div className="flex items-center justify-center bg-black dark:bg-gray-900">
+    <div className="min-h-screen w-full">
+      <div className="flex items-center justify-center">
         <div className="container flex w-full flex-col p-4 py-20">
           <div className="flex w-full items-center justify-between border-b border-gray-300 pb-4">
             <p className="text-2xl font-bold">Tin mới</p>

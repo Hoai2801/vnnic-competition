@@ -40,7 +40,7 @@ export default function SkeletonImage({
           opacity: { delay: 0.5, duration: 0.4 },
         }}
         onLoad={imageLoaded}
-        src={src}
+        src={`http://localhost:8080/image/${src}`}
         className={classNames}
       />
     </div>

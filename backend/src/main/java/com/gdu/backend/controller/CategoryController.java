@@ -17,34 +17,36 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("categories")
+@RequestMapping("/categories")
 @FieldDefaults(makeFinal = true)
 @RequiredArgsConstructor
+@CrossOrigin
 public class CategoryController {
     private ICategoryService categoryService;
 
-    @PostMapping("")
-    public ResponseEntity<CategoryResponse> createCategory(
-            @Valid @RequestBody CategoryRequest categoryRequest, BindingResult result) {
-        CategoryResponse categoryResponse = new CategoryResponse();
-        if (result.hasErrors()) {
-            List<String> errorMessages = result.getFieldErrors()
-                    .stream()
-                    .map(FieldError::getDefaultMessage)
-                    .toList();
-            categoryResponse.setErrors(errorMessages);
-            return ResponseEntity.badRequest().body(categoryResponse);
-        }
-        Category category = categoryService.create(categoryRequest);
-        categoryResponse.setCategory(category);
-        categoryResponse.setMessage(MessageKeys.INSERT_CATEGORY_SUCCESSFULLY);
-        return ResponseEntity.ok(categoryResponse);
-    }
+//    @PostMapping("")
+//    public ResponseEntity<CategoryResponse> createCategory(
+//            @Valid @RequestBody CategoryRequest categoryRequest, BindingResult result) {
+//        CategoryResponse categoryResponse = new CategoryResponse();
+//        if (result.hasErrors()) {
+//            List<String> errorMessages = result.getFieldErrors()
+//                    .stream()
+//                    .map(FieldError::getDefaultMessage)
+//                    .toList();
+////            categoryResponse.setErrors(errorMessages);
+//            return ResponseEntity.badRequest().body(categoryResponse);
+//        }
+//        Category category = categoryService.create(categoryRequest);
+//        categoryResponse.setCategory(category);
+////        categoryResponse.setMessage(MessageKeys.INSERT_CATEGORY_SUCCESSFULLY);
+//        return ResponseEntity.ok(categoryResponse);
+//    }
 
 
-    @GetMapping("")
+    @GetMapping
     public ResponseEntity<List<Category>> getAllCategories() {
         List<Category> categories = categoryService.getAllCategories();
+        System.out.println(categories);
         return ResponseEntity.ok(categories);
     }
 
@@ -55,7 +57,7 @@ public class CategoryController {
     ) {
         CategoryResponse updateCategoryResponse = new CategoryResponse();
         categoryService.update(categoryRequest, id);
-        updateCategoryResponse.setMessage(MessageKeys.UPDATE_CATEGORY_SUCCESSFULLY);
+//        updateCategoryResponse.setMessage(MessageKeys.UPDATE_CATEGORY_SUCCESSFULLY);
         return ResponseEntity.ok(updateCategoryResponse);
     }
 

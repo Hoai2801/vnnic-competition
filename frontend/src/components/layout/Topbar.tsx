@@ -1,35 +1,87 @@
 import { AnimatePresence, motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
 
+interface Post {
+  id: number;
+  title: string;
+  category: string;
+  excerpt: string;
+  slug: string;
+  date: string;
+  coverImage: string;
+}
+
 export default function Topbar() {
   const [letterIndex, setLetterIndex] = useState<number>(0);
 
-  const posts = [
+  const [posts, setPosts] = useState<Post[]>([
     {
-      id: 0,
+      id: 8,
       title:
-        "CUỘC THI TRỰC TUYẾN “SINH VIÊN ĐẠI HỌC ĐÔNG Á VỚI CHUYỂN ĐỔI SỐ” năm 2024",
-      category: "Tin 1",
+        "Hội nghị toàn quốc quán triệt, triển khai thực hiện Nghị quyết Trung ương 10, khóa XIII",
+      category: "Sự kiện",
       excerpt:
-        "Nhân dịp Kỷ niệm Ngày Chuyển đổi số Quốc gia 2024, Đoàn Thanh Niên Trường Đại học Đông Á chính thức phát động Cuộc thi Trực tuyến...",
-      slug: "tin-1",
-      date: "01/01/2023",
-      coverImage:
-        "https://tuoitredaihocdonga.org.vn/wp-content/uploads/2024/10/Blue-Gradient-Artificial-Intelligence-Digital-Transformation-Futuristic-Illustrative-Infographic-2.png",
+        '<figure class="image"><img style="aspect-ratio:800/598;" src="https://image.nhandan.vn/w800/Uploaded',
+      slug: "Hội-nghị-toàn-quốc-quán-triệt,-triển-khai-thực-hiện-Nghị-quyết-Trung-ương-10,-khóa-XIII",
+      date: "2024-10-20",
+      coverImage: "1729414771896_Screenshot from 2024-10-17 13-53-21.png",
     },
     {
-      id: 1,
+      id: 7,
       title:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore rfgfsdgsdfgsdgshghjhjgjgjgjgm",
-      category: "Tin 1",
+        "[Ảnh] Chủ tịch Quốc hội Trần Thanh Mẫn tiếp Chánh án Tòa án nhân dân tối cao Trung Quốc",
+      category: "Tin tức",
       excerpt:
-        "Nhân dịp Kỷ niệm Ngày Chuyển đổi số Quốc gia 2024, Đoàn Thanh Niên Trường Đại học Đông Á chính th.rpm phát động Cuộc thi Tracular...",
-      slug: "tin-1",
-      date: "01/01/2023",
-      coverImage:
-        "https://tuoitredaihocdonga.org.vn/wp-content/uploads/2024/10/Blue-Gradient-Artificial-Intelligence-Digital-Transformation-Futuristic-Illustrative-Infographic-2.png",
+        '<p>&nbsp;</p><p><span class=" prefix-sapo">NDO - </span>Sáng 20/10, tại Nhà Quốc hội, <a target="_bl',
+      slug: "[Ảnh]-Chủ-tịch-Quốc-hội-Trần-Thanh-Mẫn-tiếp-Chánh-án-Tòa-án-nhân-dân-tối-cao-Trung-Quốc",
+      date: "2024-10-20",
+      coverImage: "1729412509756_Screenshot from 2024-10-17 13-53-21.png",
     },
-  ];
+    {
+      id: 6,
+      title:
+        "[Ảnh] Chủ tịch Quốc hội Trần Thanh Mẫn tiếp Chánh án Tòa án nhân dân tối cao Trung Quốc",
+      category: "Tin tức",
+      excerpt:
+        '<p>&nbsp;</p><p><span class=" prefix-sapo">NDO - </span>Sáng 20/10, tại Nhà Quốc hội, <a target="_bl',
+      slug: "[Ảnh]-Chủ-tịch-Quốc-hội-Trần-Thanh-Mẫn-tiếp-Chánh-án-Tòa-án-nhân-dân-tối-cao-Trung-Quốc",
+      date: "2024-10-20",
+      coverImage: "1729410727332_Screenshot from 2024-10-17 13-53-21.png",
+    },
+    {
+      id: 8,
+      title:
+        "Hội nghị toàn quốc quán triệt, triển khai thực hiện Nghị quyết Trung ương 10, khóa XIII",
+      category: "Sự kiện",
+      excerpt:
+        '<figure class="image"><img style="aspect-ratio:800/598;" src="https://image.nhandan.vn/w800/Uploaded',
+      slug: "Hội-nghị-toàn-quốc-quán-triệt,-triển-khai-thực-hiện-Nghị-quyết-Trung-ương-10,-khóa-XIII",
+      date: "2024-10-20",
+      coverImage: "1729414771896_Screenshot from 2024-10-17 13-53-21.png",
+    },
+    {
+      id: 7,
+      title:
+        "[Ảnh] Chủ tịch Quốc hội Trần Thanh Mẫn tiếp Chánh án Tòa án nhân dân tối cao Trung Quốc",
+      category: "Tin tức",
+      excerpt:
+        '<p>&nbsp;</p><p><span class=" prefix-sapo">NDO - </span>Sáng 20/10, tại Nhà Quốc hội, <a target="_bl',
+      slug: "[Ảnh]-Chủ-tịch-Quốc-hội-Trần-Thanh-Mẫn-tiếp-Chánh-án-Tòa-án-nhân-dân-tối-cao-Trung-Quốc",
+      date: "2024-10-20",
+      coverImage: "1729412509756_Screenshot from 2024-10-17 13-53-21.png",
+    },
+    {
+      id: 6,
+      title:
+        "[Ảnh] Chủ tịch Quốc hội Trần Thanh Mẫn tiếp Chánh án Tòa án nhân dân tối cao Trung Quốc",
+      category: "Tin tức",
+      excerpt:
+        '<p>&nbsp;</p><p><span class=" prefix-sapo">NDO - </span>Sáng 20/10, tại Nhà Quốc hội, <a target="_bl',
+      slug: "[Ảnh]-Chủ-tịch-Quốc-hội-Trần-Thanh-Mẫn-tiếp-Chánh-án-Tòa-án-nhân-dân-tối-cao-Trung-Quốc",
+      date: "2024-10-20",
+      coverImage: "1729410727332_Screenshot from 2024-10-17 13-53-21.png",
+    },
+  ]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -54,9 +106,9 @@ export default function Topbar() {
                 className="fill-white"
               />
             </svg>
-            <p className="hidden font-neue text-sm font-bold md:block">
+            {/* <p className="hidden font-neue text-sm font-bold md:block">
               Popular
-            </p>
+            </p> */}
             <AnimatePresence mode="wait">
               <motion.div
                 key={posts[letterIndex].id}
