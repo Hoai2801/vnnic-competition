@@ -6,6 +6,7 @@ interface Props {
   title: string;
   thumbnailUrl: string;
   slug: string;
+  category: string;
   date: string;
 }
 
