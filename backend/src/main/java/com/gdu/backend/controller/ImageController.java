@@ -5,10 +5,8 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.StreamUtils;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
@@ -23,9 +21,17 @@ public class ImageController {
 
     @GetMapping("/{imageName}")
     public ResponseEntity<byte[]> getImage(@PathVariable("imageName") String imageName) throws IOException {
-        System.out.println("uncache");
         Path imagePath = Paths.get("src", "main", "resources", "static", "uploads", imageName);
         return getCompressedImageResponse(imagePath, MediaType.IMAGE_PNG);
+    }
+    
+    @PostMapping("/upload")
+    public ResponseEntity<String> uploadImage(@RequestParam("image") MultipartFile image) throws IOException {
+        System.out.println("image");
+        String imageName = image.getOriginalFilename();
+        Path imagePath = Paths.get("src", "main", "resources", "static", "uploads", imageName);
+        image.transferTo(imagePath);
+        return ResponseEntity.ok("http://localhost:8080/image/" + imageName);
     }
 
     private ResponseEntity<byte[]> getCompressedImageResponse(Path imagePath, MediaType mediaType) throws IOException {

@@ -43,8 +43,9 @@ public class BlogService implements IBlogService {
     }
 
     @Override
-    public List<Blog> getBlogsByCategoryId(Long id) {
-        return blogRepo.findAllByCategoryId(id);
+    public List<BlogResponse> getBlogsByCategoryId(Long id, int limit) {
+        PageRequest pageable = PageRequest.of(0, limit, Sort.by("id").descending());
+        return blogRepo.findAllByCategoryId(pageable, id).stream().map(BlogResponse::from).toList();
     }
 
     @Override
@@ -89,6 +90,20 @@ public class BlogService implements IBlogService {
     public BlogDetailResponse getBlogBySlug(String slug) {
         Blog blog = blogRepo.findBySlug(slug);
         return BlogDetailResponse.from(blog);
+    }
+
+    @Override
+    public List<BlogResponse> getRandomBlogs() {
+        List<BlogResponse> blogs = new java.util.ArrayList<>(blogRepo.findAll().stream().map(BlogResponse::from).toList());
+        // return random 5 blogs
+        int n = blogs.size();
+        for (int i = n - 1; i > 0; i--) {
+            int j = (int) (Math.random() * (i + 1));
+            BlogResponse temp = blogs.get(i);
+            blogs.set(i, blogs.get(j));
+            blogs.set(j, temp);
+        }
+        return blogs.subList(0, 4);
     }
 
     public static String toSlug(String input) {

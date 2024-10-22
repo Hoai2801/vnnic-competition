@@ -4,3 +4,23 @@ spring:
     password: password
     username: root
     url: jdbc:mysql://localhost:3306/vnnic
+  servlet:
+    multipart:
+      max-file-size: 200MB
+      max-request-size: 200MB
+  http:
+    gzip:
+      enabled: true
+  
+
+# max upload file is 200mb
+server:
+  tomcat:
+    max-swallow-size: -1
+    max-http-form-post-size: -1
+  compression:
+    enabled: true
+    mime-types: application/json,application/xml,text/html,text/xml,text/plain,text/css,text/javascript,application/javascript
+    min-response-size: 100
+    excluded-user-agents: MSIE 6.0,UCBrowser
+    

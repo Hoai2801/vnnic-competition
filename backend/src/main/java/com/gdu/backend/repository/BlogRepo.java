@@ -15,7 +15,7 @@ import java.util.List;
 
 @Repository
 public interface BlogRepo extends JpaRepository<Blog, Long> {
-    List<Blog> findAllByCategoryId(Long id);
+    List<Blog> findAllByCategoryId(PageRequest pageable, Long id);
 
     List<Blog> findTopByOrderByCreatedAtDesc(PageRequest pageable);
 

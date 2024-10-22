@@ -25,9 +25,14 @@ public class BlogController {
         return ResponseEntity.ok(blogService.getLatestBlogs()); 
     }
     
+    @GetMapping("/random")
+    public ResponseEntity<List<BlogResponse>> getRandomBlogs() {
+        return ResponseEntity.ok(blogService.getRandomBlogs());
+    }
+    
     @GetMapping("/category/{id}")
-    public ResponseEntity<List<Blog>> getBlogsByCategoryId(Long id) {
-        return ResponseEntity.ok(blogService.getBlogsByCategoryId(id));
+    public ResponseEntity<List<BlogResponse>> getBlogsByCategoryId(@PathVariable Long id, @RequestParam(defaultValue = "4", name = "limit" ) int limit) {
+        return ResponseEntity.ok(blogService.getBlogsByCategoryId(id, limit));
     }
     
     @GetMapping("/search")

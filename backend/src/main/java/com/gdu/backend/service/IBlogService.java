@@ -11,11 +11,13 @@ import java.util.List;
 public interface IBlogService {
     List<BlogResponse> getLatestBlogs();
 
-    List<Blog> getBlogsByCategoryId(Long id);
+    List<BlogResponse> getBlogsByCategoryId(Long id, int limit);
 
     List<BlogResponse> searchBlogs(String keyword);
 
     void create(BlogRequest blog) throws IOException;
 
     BlogDetailResponse getBlogBySlug(String slug);
+
+    List<BlogResponse> getRandomBlogs();
 }
