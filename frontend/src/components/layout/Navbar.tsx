@@ -1,7 +1,8 @@
 import { motion, useScroll, useSpring } from "framer-motion";
-import React, { useState } from "react";
+import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/logo.webp";
+import useToggle from "../common/useToggle";
 import Modal from "../ui/Modal";
 import ThemeToggle from "./../theme/ThemeToggle";
 import Sidebar from "./Sidebar";
@@ -12,13 +13,8 @@ interface NavItem {
 }
 
 export default function Navbar() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
-  const openSidebar = () => setIsSidebarOpen(true);
-  const closeSidebar = () => setIsSidebarOpen(false);
+  const sidebar = useToggle();
+  const modal = useToggle();
 
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
@@ -55,12 +51,10 @@ export default function Navbar() {
                   <NavLink
                     key={item.to}
                     to={item.to}
-                    className={({ isActive, isPending, isTransitioning }) =>
+                    className={({ isActive }) =>
                       [
                         "text-nowrap p-2 font-semibold transition-colors hover:text-indigo-600",
-                        isPending ? "pending" : "",
                         isActive ? "text-indigo-600" : "",
-                        isTransitioning ? "transitioning" : "",
                       ].join(" ")
                     }
                   >
@@ -75,7 +69,7 @@ export default function Navbar() {
                 viewBox="0 0 24 24"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                onClick={openModal}
+                onClick={modal.open}
                 className="h-5 w-5 cursor-pointer"
               >
                 <path
@@ -91,7 +85,7 @@ export default function Navbar() {
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5 cursor-pointer md:hidden"
-                onClick={openSidebar}
+                onClick={sidebar.open}
               >
                 <path
                   d="M6.5 10.32C8.433 10.32 10 8.753 10 6.82001C10 4.88701 8.433 3.32001 6.5 3.32001C4.567 3.32001 3 4.88701 3 6.82001C3 8.753 4.567 10.32 6.5 10.32Z"
@@ -151,7 +145,7 @@ export default function Navbar() {
           className={`absolute bottom-0 left-0 right-0 h-0.5 origin-left bg-indigo-500`}
         />
       </div>
-      <Modal isOpen={isModalOpen} onClose={closeModal}>
+      <Modal isOpen={modal.isOpen} onClose={modal.close}>
         <div className="flex gap-2 px-2">
           <input
             className="w-full rounded border border-solid border-gray-300 px-4 py-2 text-sm focus:outline-none dark:bg-dark dark:text-white"
@@ -163,7 +157,7 @@ export default function Navbar() {
           </button>
         </div>
       </Modal>
-      <Sidebar isOpen={isSidebarOpen} onClose={closeSidebar} />
+      <Sidebar isOpen={sidebar.isOpen} onClose={sidebar.close} />
     </>
   );
 }

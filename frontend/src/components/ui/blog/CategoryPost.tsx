@@ -98,6 +98,6 @@ export default function CategoryPost({ header, posts }: { header: string, posts:
           </Link>
         ))}
       </div>
-    </div>
+    </>
   );
 }

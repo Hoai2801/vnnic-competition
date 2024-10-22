@@ -30,9 +30,9 @@ export default function SkeletonImage({
       style={{ width: width, background: "#ccc" }}
     >
       <motion.img
-        initial={{ height, opacity: 0 }}
+        initial={{ height: "0px", opacity: 0 }}
         animate={{
-          height: imageLoading ? height : "",
+          height: imageLoading ? height : "auto",
           opacity: imageLoading ? 0 : 1,
         }}
         transition={{
