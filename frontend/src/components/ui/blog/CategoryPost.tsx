@@ -16,54 +16,54 @@ interface Post {
   coverImage: string;
 }
 
-export default function CategoryPost({ header }: Props) {
-  const [posts, setPosts] = useState<Post[]>([
-    {
-      id: 0,
-      title:
-        "CUỘC THI TRỰC TUYẾN “SINH VIÊN ĐẠI HỌC ĐÔNG Á VỚI CHUYỂN ĐỔI SỐ” năm 2024",
-      category: "Tin 1",
-      excerpt:
-        "Nhân dịp Kỷ niệm Ngày Chuyển đổi số Quốc gia 2024, Đoàn Thanh Niên Trường Đại học Đông Á chính thức phát động Cuộc thi Trực tuyến...",
-      slug: "tin-1",
-      date: "01/01/2023",
-      coverImage:
-        "https://images.unsplash.com/photo-1720048169707-a32d6dfca0b3?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    },
-    {
-      id: 1,
-      title:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore rfgfsdgsdfgsdgshghjhjgjgjgjgm",
-      category: "Tin 1",
-      excerpt:
-        "Nhân dịp Kỷ niệm Ngày Chuyển đổi số Quốc gia 2024, Đoàn Thanh Niên Trường Đại học Đông Á chính th.rpm phát động Cuộc thi Tracular...",
-      slug: "tin-1",
-      date: "01/01/2023",
-      coverImage:
-        "https://images.unsplash.com/photo-1728495145469-f0bcbda1dfa5?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    },
-    {
-      id: 2,
-      title: "New Post Title 1",
-      category: "Tin 2",
-      excerpt: "This is a short excerpt for the new post 1.",
-      slug: "tin-2",
-      date: "02/01/2023",
-      coverImage:
-        "https://images.unsplash.com/photo-1727950183920-654c2feee258?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    },
-    {
-      id: 3,
-      title: "New Post Title 2",
-      category: "Tin 3",
-      excerpt: "This is a short excerpt for the new post 2.",
-      slug: "tin-3",
-      date: "03/01/2023",
-      coverImage:
-        "https://images.unsplash.com/photo-1728155288820-eadfefa52394?q=80&w=1312&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    },
-  ]);
-
+export default function CategoryPost({ header, posts }: { header: string, posts: Post[] }) {
+  // const [posts, setPosts] = useState<Post[]>([
+  //   {
+  //     id: 0,
+  //     title:
+  //       "CUỘC THI TRỰC TUYẾN “SINH VIÊN ĐẠI HỌC ĐÔNG Á VỚI CHUYỂN ĐỔI SỐ” năm 2024",
+  //     category: "Tin 1",
+  //     excerpt:
+  //       "Nhân dịp Kỷ niệm Ngày Chuyển đổi số Quốc gia 2024, Đoàn Thanh Niên Trường Đại học Đông Á chính thức phát động Cuộc thi Trực tuyến...",
+  //     slug: "tin-1",
+  //     date: "01/01/2023",
+  //     coverImage:
+  //       "https://images.unsplash.com/photo-1720048169707-a32d6dfca0b3?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  //   },
+  //   {
+  //     id: 1,
+  //     title:
+  //       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore rfgfsdgsdfgsdgshghjhjgjgjgjgm",
+  //     category: "Tin 1",
+  //     excerpt:
+  //       "Nhân dịp Kỷ niệm Ngày Chuyển đổi số Quốc gia 2024, Đoàn Thanh Niên Trường Đại học Đông Á chính th.rpm phát động Cuộc thi Tracular...",
+  //     slug: "tin-1",
+  //     date: "01/01/2023",
+  //     coverImage:
+  //       "https://images.unsplash.com/photo-1728495145469-f0bcbda1dfa5?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  //   },
+  //   {
+  //     id: 2,
+  //     title: "New Post Title 1",
+  //     category: "Tin 2",
+  //     excerpt: "This is a short excerpt for the new post 1.",
+  //     slug: "tin-2",
+  //     date: "02/01/2023",
+  //     coverImage:
+  //       "https://images.unsplash.com/photo-1727950183920-654c2feee258?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  //   },
+  //   {
+  //     id: 3,
+  //     title: "New Post Title 2",
+  //     category: "Tin 3",
+  //     excerpt: "This is a short excerpt for the new post 2.",
+  //     slug: "tin-3",
+  //     date: "03/01/2023",
+  //     coverImage:
+  //       "https://images.unsplash.com/photo-1728155288820-eadfefa52394?q=80&w=1312&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  //   },
+  // ]);
+  console.log(posts);
   return (
     <div className="flex w-full flex-col gap-4 py-12">
       <div className="flex w-full items-center justify-between border-b border-gray-300 pb-4">
@@ -74,7 +74,7 @@ export default function CategoryPost({ header }: Props) {
       </div>
       <div className="flex grid-cols-2 flex-col gap-8 md:grid lg:grid-cols-4">
         {posts.map((post) => (
-          <div key={post.id} className="flex flex-col gap-4">
+          <Link to={`/article/${post.slug}`} key={post.id} className="flex flex-col gap-4">
             <SkeletonImage
               height="200px"
               src={post.coverImage}
@@ -95,7 +95,7 @@ export default function CategoryPost({ header }: Props) {
               </svg>
               {post.date}
             </p>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

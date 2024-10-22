@@ -1,4 +1,5 @@
 import { CKEditor } from "@ckeditor/ckeditor5-react";
+import CustomUploadAdapterPlugin from '../../hooks/CustomUploadAdapter';
 import {
   AccessibilityHelp,
   Alignment,
@@ -6,7 +7,7 @@ import {
   AutoImage,
   AutoLink,
   Autosave,
-  Base64UploadAdapter,
+  // Base64UploadAdapter,
   BlockQuote,
   Bold,
   ClassicEditor,
@@ -108,7 +109,6 @@ const UploadBlog = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setCategories(data)
       });
       // .then((data) => {
@@ -117,6 +117,41 @@ const UploadBlog = () => {
       // });
     return () => setIsLayoutReady(false);
   }, []);
+
+  const CustomUploadAdapter = (loader) => {
+    const uploadFile = (file) => {
+      // Create a new promise
+      return new Promise((resolve, reject) => {
+        const formData = new FormData();
+        formData.append('upload', file); // 'upload' should match the parameter name expected by your backend
+
+        fetch('http://localhost:8080/image/upload', { // Your backend upload endpoint
+          method: 'POST',
+          body: formData,
+        })
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error('Upload failed');
+            }
+            return response.json();
+          })
+          .then((data) => {
+            // Resolve the promise with the URL of the uploaded image
+            resolve({ default: data.url });
+          })
+          .catch((error) => {
+            reject(error);
+          });
+      });
+    };
+
+    return {
+      upload: () => uploadFile(loader.file),
+      abort: () => {
+        // Handle aborting the upload if needed
+      },
+    };
+  };
 
   const editorConfig = {
     toolbar: {
@@ -198,7 +233,7 @@ const UploadBlog = () => {
       PasteFromOffice,
       RemoveFormat,
       SelectAll,
-      Base64UploadAdapter,
+      // Base64UploadAdapter,
       SpecialCharacters,
       SpecialCharactersArrows,
       SpecialCharactersCurrency,
@@ -381,6 +416,8 @@ const UploadBlog = () => {
         },
       ],
     },
+    // upload image with link
+
     table: {
       contentToolbar: [
         "tableColumn",
@@ -401,7 +438,7 @@ const UploadBlog = () => {
     const firstLine = blog.content.match(/<h1>(.*?)<\/h1>/); // Get the first line and trim it
     const title = firstLine ? firstLine[1] : "";
     formData.append("title", title);
-    console.log(formData);
+    // console.log(formData);
     fetch("http://localhost:8080/blog/create", {
       method: "POST",
       body: formData,
@@ -456,14 +493,14 @@ const UploadBlog = () => {
               {isLayoutReady && (
                 <CKEditor
                   editor={ClassicEditor}
-                  config={editorConfig}
                   data={blog.content}
                   onChange={(event, editor) => {
                     const data = editor.getData();
-                    // console.log(data);
                     setBlog({ ...blog, content: data });
                   }}
+                  config={editorConfig}
                 />
+
               )}
             </div>
           </div>

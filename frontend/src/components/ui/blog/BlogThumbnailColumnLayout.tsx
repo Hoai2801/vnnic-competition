@@ -22,7 +22,7 @@ const BlogThumbnailColumnLayout: React.FC<Props> = ({
   isMain,
 }) => {
   return (
-    <Link to={`/blog/${slug}`}>
+    <Link to={`/article/${slug}`}>
       <div className={`${isMain ? "xl:w-[700px]" : "xl:w-[340px]"}`}>
         <div
           className={`flex items-center justify-center overflow-hidden rounded-md`}

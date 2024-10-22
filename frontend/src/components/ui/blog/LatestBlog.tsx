@@ -96,8 +96,8 @@ export default function LatestBlog() {
   ]);
 
   return (
-    <div className="min-h-screen w-full text-white">
-      <div className="flex items-center justify-center bg-black dark:bg-gray-900">
+    <div className="min-h-screen w-full">
+      <div className="flex items-center justify-center">
         <div className="container flex w-full flex-col p-4 py-20">
           <div className="flex w-full items-center justify-between border-b border-gray-300 pb-4">
             <p className="text-2xl font-bold">Tin mới</p>
@@ -157,50 +157,50 @@ export default function LatestBlog() {
               ))}
             </div>
             {/* Post 3 */}
-            <div className="flex flex-col gap-8 lg:w-1/4">
-              <div className="flex flex-col gap-4">
-                <SkeletonImage
-                  height="240px"
-                  src={posts[6].coverImage}
-                  className="aspect-video object-cover"
-                />
-                <div className="text-bold text-center"> {posts[6].title}</div>
-                <div className="flex w-full items-center justify-center gap-4">
-                  <div className="w-fit rounded-full bg-sky-500 px-3 py-1 text-sm font-semibold text-white">
-                    {posts[6].category}
-                  </div>
-                  <p className={`flex items-center gap-1 text-sm text-white`}>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      x="0px"
-                      y="0px"
-                      viewBox="0 0 24 24"
-                      className="h-4 w-4 fill-white"
-                    >
-                      <path d="M 12 2 C 6.4889971 2 2 6.4889971 2 12 C 2 17.511003 6.4889971 22 12 22 C 17.511003 22 22 17.511003 22 12 C 22 6.4889971 17.511003 2 12 2 z M 12 4 C 16.430123 4 20 7.5698774 20 12 C 20 16.430123 16.430123 20 12 20 C 7.5698774 20 4 16.430123 4 12 C 4 7.5698774 7.5698774 4 12 4 z M 11 6 L 11 12.414062 L 15.292969 16.707031 L 16.707031 15.292969 L 13 11.585938 L 13 6 L 11 6 z"></path>
-                    </svg>
-                    {posts[6].date}
-                  </p>
-                </div>
-              </div>
-              <div className="flex flex-col gap-4 border-t py-4">
-                <p className="line-clamp-3 truncate font-bold">
-                  {posts[7].title}
-                </p>
-                <p className={`flex items-center gap-1 text-sm text-white`}>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    x="0px"
-                    y="0px"
-                    viewBox="0 0 24 24"
-                    className="h-4 w-4 fill-white"
-                  >
-                    <path d="M 12 2 C 6.4889971 2 2 6.4889971 2 12 C 2 17.511003 6.4889971 22 12 22 C 17.511003 22 22 17.511003 22 12 C 22 6.4889971 17.511003 2 12 2 z M 12 4 C 16.430123 4 20 7.5698774 20 12 C 20 16.430123 16.430123 20 12 20 C 7.5698774 20 4 16.430123 4 12 C 4 7.5698774 7.5698774 4 12 4 z M 11 6 L 11 12.414062 L 15.292969 16.707031 L 16.707031 15.292969 L 13 11.585938 L 13 6 L 11 6 z"></path>
-                  </svg>
-                  {posts[7].date}
-                </p>
-              </div>
-            </div>
+            {/*<div className="flex flex-col gap-8 lg:w-1/4">*/}
+            {/*  <div className="flex flex-col gap-4">*/}
+            {/*    <SkeletonImage*/}
+            {/*      height="240px"*/}
+            {/*      src={posts[6].coverImage}*/}
+            {/*      className="aspect-video object-cover"*/}
+            {/*    />*/}
+            {/*    <div className="text-bold text-center"> {posts[6].title}</div>*/}
+            {/*    <div className="flex w-full items-center justify-center gap-4">*/}
+            {/*      <div className="w-fit rounded-full bg-sky-500 px-3 py-1 text-sm font-semibold text-white">*/}
+            {/*        {posts[6].category}*/}
+            {/*      </div>*/}
+            {/*      <p className={`flex items-center gap-1 text-sm text-white`}>*/}
+            {/*        <svg*/}
+            {/*          xmlns="http://www.w3.org/2000/svg"*/}
+            {/*          x="0px"*/}
+            {/*          y="0px"*/}
+            {/*          viewBox="0 0 24 24"*/}
+            {/*          className="h-4 w-4 fill-white"*/}
+            {/*        >*/}
+            {/*          <path d="M 12 2 C 6.4889971 2 2 6.4889971 2 12 C 2 17.511003 6.4889971 22 12 22 C 17.511003 22 22 17.511003 22 12 C 22 6.4889971 17.511003 2 12 2 z M 12 4 C 16.430123 4 20 7.5698774 20 12 C 20 16.430123 16.430123 20 12 20 C 7.5698774 20 4 16.430123 4 12 C 4 7.5698774 7.5698774 4 12 4 z M 11 6 L 11 12.414062 L 15.292969 16.707031 L 16.707031 15.292969 L 13 11.585938 L 13 6 L 11 6 z"></path>*/}
+            {/*        </svg>*/}
+            {/*        {posts[6].date}*/}
+            {/*      </p>*/}
+            {/*    </div>*/}
+            {/*  </div>*/}
+            {/*  <div className="flex flex-col gap-4 border-t py-4">*/}
+            {/*    <p className="line-clamp-3 truncate font-bold">*/}
+            {/*      {posts[7].title}*/}
+            {/*    </p>*/}
+            {/*    <p className={`flex items-center gap-1 text-sm text-white`}>*/}
+            {/*      <svg*/}
+            {/*        xmlns="http://www.w3.org/2000/svg"*/}
+            {/*        x="0px"*/}
+            {/*        y="0px"*/}
+            {/*        viewBox="0 0 24 24"*/}
+            {/*        className="h-4 w-4 fill-white"*/}
+            {/*      >*/}
+            {/*        <path d="M 12 2 C 6.4889971 2 2 6.4889971 2 12 C 2 17.511003 6.4889971 22 12 22 C 17.511003 22 22 17.511003 22 12 C 22 6.4889971 17.511003 2 12 2 z M 12 4 C 16.430123 4 20 7.5698774 20 12 C 20 16.430123 16.430123 20 12 20 C 7.5698774 20 4 16.430123 4 12 C 4 7.5698774 7.5698774 4 12 4 z M 11 6 L 11 12.414062 L 15.292969 16.707031 L 16.707031 15.292969 L 13 11.585938 L 13 6 L 11 6 z"></path>*/}
+            {/*      </svg>*/}
+            {/*      {posts[7].date}*/}
+            {/*    </p>*/}
+            {/*  </div>*/}
+            {/*</div>*/}
           </div>
         </div>
       </div>

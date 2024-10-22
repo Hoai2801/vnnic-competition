@@ -17,7 +17,7 @@ const BlogThumbnailRowLayout: React.FC<Props> = ({
   date,
 }) => {
   return (
-    <Link to={`/blog/${slug}`}>
+    <Link to={`/article/${slug}`}>
       <div
         className={`flex justify-between gap-4 border-t border-gray-300 pt-4 xl:w-auto`}
       >

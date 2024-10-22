@@ -37,7 +37,7 @@ export default function App() {
       element: <Register />,
     },
     {
-      path: "/blog",
+      path: "/news",
       element: (
         <Layout>
           <Blog />
@@ -45,7 +45,7 @@ export default function App() {
       ),
     },
     {
-      path: "/blog/:slug",
+      path: "/article/:slug",
       element: (
         <Layout>
           <BlogLayout />

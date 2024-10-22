@@ -5,9 +5,14 @@ i {
 
 img {
     width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 figure {
-    background: #272822;
+    /*background: #272822;*/
     justify-self: center;
+    text-align: center;
+    color: #686363;
+    font-size: 12px;
 }

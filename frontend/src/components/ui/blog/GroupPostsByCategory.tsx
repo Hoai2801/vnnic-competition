@@ -12,63 +12,63 @@ interface Post {
   date: string;
   coverImage: string;
 }
-const GroupPostsByCategory = ( {header} : {header: string}) => {
-  const [posts, setPosts] = useState<Post[]>([
-    {
-      "id": 8,
-      "title": "Hội nghị toàn quốc quán triệt, triển khai thực hiện Nghị quyết Trung ương 10, khóa XIII",
-      "category": "Sự kiện",
-      "excerpt": "<figure class=\"image\"><img style=\"aspect-ratio:800/598;\" src=\"https://image.nhandan.vn/w800/Uploaded",
-      "slug": "Hội-nghị-toàn-quốc-quán-triệt,-triển-khai-thực-hiện-Nghị-quyết-Trung-ương-10,-khóa-XIII",
-      "date": "2024-10-20",
-      "coverImage": "1729414771896_Screenshot from 2024-10-17 13-53-21.png"
-    },
-    {
-      "id": 7,
-      "title": "[Ảnh] Chủ tịch Quốc hội Trần Thanh Mẫn tiếp Chánh án Tòa án nhân dân tối cao Trung Quốc",
-      "category": "Tin tức",
-      "excerpt": "<p>&nbsp;</p><p><span class=\" prefix-sapo\">NDO - </span>Sáng 20/10, tại Nhà Quốc hội, <a target=\"_bl",
-      "slug": "[Ảnh]-Chủ-tịch-Quốc-hội-Trần-Thanh-Mẫn-tiếp-Chánh-án-Tòa-án-nhân-dân-tối-cao-Trung-Quốc",
-      "date": "2024-10-20",
-      "coverImage": "1729412509756_Screenshot from 2024-10-17 13-53-21.png"
-    },
-    {
-      "id": 6,
-      "title": "[Ảnh] Chủ tịch Quốc hội Trần Thanh Mẫn tiếp Chánh án Tòa án nhân dân tối cao Trung Quốc",
-      "category": "Tin tức",
-      "excerpt": "<p>&nbsp;</p><p><span class=\" prefix-sapo\">NDO - </span>Sáng 20/10, tại Nhà Quốc hội, <a target=\"_bl",
-      "slug": "[Ảnh]-Chủ-tịch-Quốc-hội-Trần-Thanh-Mẫn-tiếp-Chánh-án-Tòa-án-nhân-dân-tối-cao-Trung-Quốc",
-      "date": "2024-10-20",
-      "coverImage": "1729410727332_Screenshot from 2024-10-17 13-53-21.png"
-    },
-    {
-      "id": 8,
-      "title": "Hội nghị toàn quốc quán triệt, triển khai thực hiện Nghị quyết Trung ương 10, khóa XIII",
-      "category": "Sự kiện",
-      "excerpt": "<figure class=\"image\"><img style=\"aspect-ratio:800/598;\" src=\"https://image.nhandan.vn/w800/Uploaded",
-      "slug": "Hội-nghị-toàn-quốc-quán-triệt,-triển-khai-thực-hiện-Nghị-quyết-Trung-ương-10,-khóa-XIII",
-      "date": "2024-10-20",
-      "coverImage": "1729414771896_Screenshot from 2024-10-17 13-53-21.png"
-    },
-    {
-      "id": 7,
-      "title": "[Ảnh] Chủ tịch Quốc hội Trần Thanh Mẫn tiếp Chánh án Tòa án nhân dân tối cao Trung Quốc",
-      "category": "Tin tức",
-      "excerpt": "<p>&nbsp;</p><p><span class=\" prefix-sapo\">NDO - </span>Sáng 20/10, tại Nhà Quốc hội, <a target=\"_bl",
-      "slug": "[Ảnh]-Chủ-tịch-Quốc-hội-Trần-Thanh-Mẫn-tiếp-Chánh-án-Tòa-án-nhân-dân-tối-cao-Trung-Quốc",
-      "date": "2024-10-20",
-      "coverImage": "1729412509756_Screenshot from 2024-10-17 13-53-21.png"
-    },
-    {
-      "id": 6,
-      "title": "[Ảnh] Chủ tịch Quốc hội Trần Thanh Mẫn tiếp Chánh án Tòa án nhân dân tối cao Trung Quốc",
-      "category": "Tin tức",
-      "excerpt": "<p>&nbsp;</p><p><span class=\" prefix-sapo\">NDO - </span>Sáng 20/10, tại Nhà Quốc hội, <a target=\"_bl",
-      "slug": "[Ảnh]-Chủ-tịch-Quốc-hội-Trần-Thanh-Mẫn-tiếp-Chánh-án-Tòa-án-nhân-dân-tối-cao-Trung-Quốc",
-      "date": "2024-10-20",
-      "coverImage": "1729410727332_Screenshot from 2024-10-17 13-53-21.png"
-    }
-  ]);
+const GroupPostsByCategory = ( {header, posts} : {header: string, posts: Post[]}) => {
+  // const [posts, setPosts] = useState<Post[]>([
+  //   {
+  //     "id": 8,
+  //     "title": "Hội nghị toàn quốc quán triệt, triển khai thực hiện Nghị quyết Trung ương 10, khóa XIII",
+  //     "category": "Sự kiện",
+  //     "excerpt": "<figure class=\"image\"><img style=\"aspect-ratio:800/598;\" src=\"https://image.nhandan.vn/w800/Uploaded",
+  //     "slug": "Hội-nghị-toàn-quốc-quán-triệt,-triển-khai-thực-hiện-Nghị-quyết-Trung-ương-10,-khóa-XIII",
+  //     "date": "2024-10-20",
+  //     "coverImage": "1729414771896_Screenshot from 2024-10-17 13-53-21.png"
+  //   },
+  //   {
+  //     "id": 7,
+  //     "title": "[Ảnh] Chủ tịch Quốc hội Trần Thanh Mẫn tiếp Chánh án Tòa án nhân dân tối cao Trung Quốc",
+  //     "category": "Tin tức",
+  //     "excerpt": "<p>&nbsp;</p><p><span class=\" prefix-sapo\">NDO - </span>Sáng 20/10, tại Nhà Quốc hội, <a target=\"_bl",
+  //     "slug": "[Ảnh]-Chủ-tịch-Quốc-hội-Trần-Thanh-Mẫn-tiếp-Chánh-án-Tòa-án-nhân-dân-tối-cao-Trung-Quốc",
+  //     "date": "2024-10-20",
+  //     "coverImage": "1729412509756_Screenshot from 2024-10-17 13-53-21.png"
+  //   },
+  //   {
+  //     "id": 6,
+  //     "title": "[Ảnh] Chủ tịch Quốc hội Trần Thanh Mẫn tiếp Chánh án Tòa án nhân dân tối cao Trung Quốc",
+  //     "category": "Tin tức",
+  //     "excerpt": "<p>&nbsp;</p><p><span class=\" prefix-sapo\">NDO - </span>Sáng 20/10, tại Nhà Quốc hội, <a target=\"_bl",
+  //     "slug": "[Ảnh]-Chủ-tịch-Quốc-hội-Trần-Thanh-Mẫn-tiếp-Chánh-án-Tòa-án-nhân-dân-tối-cao-Trung-Quốc",
+  //     "date": "2024-10-20",
+  //     "coverImage": "1729410727332_Screenshot from 2024-10-17 13-53-21.png"
+  //   },
+  //   {
+  //     "id": 8,
+  //     "title": "Hội nghị toàn quốc quán triệt, triển khai thực hiện Nghị quyết Trung ương 10, khóa XIII",
+  //     "category": "Sự kiện",
+  //     "excerpt": "<figure class=\"image\"><img style=\"aspect-ratio:800/598;\" src=\"https://image.nhandan.vn/w800/Uploaded",
+  //     "slug": "Hội-nghị-toàn-quốc-quán-triệt,-triển-khai-thực-hiện-Nghị-quyết-Trung-ương-10,-khóa-XIII",
+  //     "date": "2024-10-20",
+  //     "coverImage": "1729414771896_Screenshot from 2024-10-17 13-53-21.png"
+  //   },
+  //   {
+  //     "id": 7,
+  //     "title": "[Ảnh] Chủ tịch Quốc hội Trần Thanh Mẫn tiếp Chánh án Tòa án nhân dân tối cao Trung Quốc",
+  //     "category": "Tin tức",
+  //     "excerpt": "<p>&nbsp;</p><p><span class=\" prefix-sapo\">NDO - </span>Sáng 20/10, tại Nhà Quốc hội, <a target=\"_bl",
+  //     "slug": "[Ảnh]-Chủ-tịch-Quốc-hội-Trần-Thanh-Mẫn-tiếp-Chánh-án-Tòa-án-nhân-dân-tối-cao-Trung-Quốc",
+  //     "date": "2024-10-20",
+  //     "coverImage": "1729412509756_Screenshot from 2024-10-17 13-53-21.png"
+  //   },
+  //   {
+  //     "id": 6,
+  //     "title": "[Ảnh] Chủ tịch Quốc hội Trần Thanh Mẫn tiếp Chánh án Tòa án nhân dân tối cao Trung Quốc",
+  //     "category": "Tin tức",
+  //     "excerpt": "<p>&nbsp;</p><p><span class=\" prefix-sapo\">NDO - </span>Sáng 20/10, tại Nhà Quốc hội, <a target=\"_bl",
+  //     "slug": "[Ảnh]-Chủ-tịch-Quốc-hội-Trần-Thanh-Mẫn-tiếp-Chánh-án-Tòa-án-nhân-dân-tối-cao-Trung-Quốc",
+  //     "date": "2024-10-20",
+  //     "coverImage": "1729410727332_Screenshot from 2024-10-17 13-53-21.png"
+  //   }
+  // ]);
 
   return (
     <div className={`mx-auto flex w-full flex-col gap-4`}>
@@ -80,32 +80,32 @@ const GroupPostsByCategory = ( {header} : {header: string}) => {
           <div className={`flex flex-col gap-4`}>
             <BlogThumbnailColumnLayout
               isMain={false}
-              title={posts[1].title}
-              category={posts[1].category}
-              description={posts[1].excerpt}
-              date={posts[1].date}
-              thumbnailUrl={posts[1].coverImage}
-              slug={posts[1].slug}
+              title={posts[1]?.title}
+              category={posts[1]?.category}
+              description={posts[1]?.excerpt}
+              date={posts[1]?.date}
+              thumbnailUrl={posts[1]?.coverImage}
+              slug={posts[1]?.slug}
             />
             <BlogThumbnailColumnLayout
               isMain={false}
-              title={posts[2].title}
-              category={posts[2].category}
-              description={posts[2].excerpt}
-              date={posts[2].date}
-              thumbnailUrl={posts[2].coverImage}
-              slug={posts[2].slug}
+              title={posts[2]?.title}
+              category={posts[2]?.category}
+              description={posts[2]?.excerpt}
+              date={posts[2]?.date}
+              thumbnailUrl={posts[2]?.coverImage}
+              slug={posts[2]?.slug}
             />
           </div>
           <div className={`flex grid-cols-1 flex-col gap-4`}>
             <BlogThumbnailColumnLayout
               isMain={true}
-              title={posts[0].title}
-              category={posts[0].category}
-              description={posts[0].excerpt}
-              date={posts[0].date}
-              thumbnailUrl={posts[0].coverImage}
-              slug={posts[0].slug}
+              title={posts[0]?.title}
+              category={posts[0]?.category}
+              description={posts[0]?.excerpt}
+              date={posts[0]?.date}
+              thumbnailUrl={posts[0]?.coverImage}
+              slug={posts[0]?.slug}
             />
           </div>
         </div>
@@ -131,7 +131,7 @@ const GroupPostsByCategory = ( {header} : {header: string}) => {
     //   <div className="flex flex-col gap-4">
     //     <SkeletonImage
     //       height="240px"
-    //       src={posts[0].coverImage}
+    //       src={posts[0]?.coverImage}
     //       className="aspect-video object-cover"
     //     />
     //     <div className="flex w-full justify-center gap-4">
