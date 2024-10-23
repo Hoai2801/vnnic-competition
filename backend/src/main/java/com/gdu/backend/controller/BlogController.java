@@ -26,8 +26,8 @@ public class BlogController {
     }
     
     @GetMapping("/random")
-    public ResponseEntity<List<BlogResponse>> getRandomBlogs() {
-        return ResponseEntity.ok(blogService.getRandomBlogs());
+    public ResponseEntity<List<BlogResponse>> getRandomBlogs(@RequestParam(defaultValue = "4", name = "limit" ) int limit) {
+        return ResponseEntity.ok(blogService.getRandomBlogs(limit));
     }
     
     @GetMapping("/category/{id}")

@@ -54,7 +54,6 @@ export default function CategoryPost({ header, posts }: { header: string, posts:
   //       "https://images.unsplash.com/photo-1728155288820-eadfefa52394?q=80&w=1312&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   //   },
   // ]);
-  console.log(posts);
   return (
     <div className="flex w-full flex-col gap-4 py-12">
       <div className="flex w-full items-center justify-between border-b border-gray-300 pb-4">

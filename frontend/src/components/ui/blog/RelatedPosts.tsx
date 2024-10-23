@@ -1,15 +1,6 @@
 import React, { useEffect, useState } from "react";
 import BlogThumbnailRowLayout from "./BlogThumbnailRowLayout";
-
-interface Post {
-  id: number;
-  title: string;
-  category: string;
-  excerpt: string;
-  slug: string;
-  date: string;
-  coverImage: string;
-}
+import Post from "../../models/Post";
 
 const RelatedPosts = () => {
   const [posts, setPosts] = useState<Post[]>();

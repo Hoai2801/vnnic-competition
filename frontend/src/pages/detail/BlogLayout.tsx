@@ -1,10 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import RelatedPosts from "../../components/ui/blog/RelatedPosts";
 import BlogDetailContent from "./BlogDetailContent";
 import Post from "../../components/models/Post";
+import BlogThumbnailColumnLayout from "../../components/ui/blog/BlogThumbnailColumnLayout";
+import BlogThumbnailRowLayout from "../../components/ui/blog/BlogThumbnailRowLayout";
 
 const BlogLayout = () => {
-  const [latestBlogs, setLatestBlogs] = useState<Post[]>();
+  const [posts, setPosts] = useState<Post[]>();
+
+  useEffect(() => {
+    fetch('http://localhost:8080/blog/random?limit=8')
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data)
+        setPosts(data)
+      })
+  }, [])
   return (
     <div className={`container flex grid-cols-3 flex-col gap-4 px-4 lg:grid`}>
       <div className={`col-span-2`}>
@@ -61,9 +72,20 @@ const BlogLayout = () => {
         <section className="py-4">
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
             <h2 className="font-manrope mb-6 text-center text-2xl font-bold text-gray-900">
-              Bài viết mới nhất
+              Bài viết có thể bạn quan tâm
             </h2>
-
+            {posts?.map((post) => (
+              <BlogThumbnailRowLayout
+                key={post.id}
+                title={post.title}
+                thumbnailUrl={post.coverImage}
+                category={post.category}
+                description={post.excerpt}
+                date={post.date}
+                slug={post.slug}
+                isMain={false}
+              />
+            ))}
           </div>
         </section>
       </div>
