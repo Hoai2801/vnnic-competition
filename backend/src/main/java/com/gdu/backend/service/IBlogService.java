@@ -19,5 +19,5 @@ public interface IBlogService {
 
     BlogDetailResponse getBlogBySlug(String slug);
 
-    List<BlogResponse> getRandomBlogs();
+    List<BlogResponse> getRandomBlogs(int limit);
 }

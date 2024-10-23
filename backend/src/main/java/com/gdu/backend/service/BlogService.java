@@ -9,23 +9,22 @@ import com.gdu.backend.repository.BlogRepo;
 import com.gdu.backend.repository.CategoryRepo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.awt.print.Pageable;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URI;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.text.Normalizer;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -45,7 +44,8 @@ public class BlogService implements IBlogService {
     @Override
     public List<BlogResponse> getBlogsByCategoryId(Long id, int limit) {
         PageRequest pageable = PageRequest.of(0, limit, Sort.by("id").descending());
-        return blogRepo.findAllByCategoryId(pageable, id).stream().map(BlogResponse::from).toList();
+        Page<BlogResponse> page = blogRepo.findAllByCategoryId(pageable, id);
+        return page.getContent();
     }
 
     @Override
@@ -93,17 +93,8 @@ public class BlogService implements IBlogService {
     }
 
     @Override
-    public List<BlogResponse> getRandomBlogs() {
-        List<BlogResponse> blogs = new java.util.ArrayList<>(blogRepo.findAll().stream().map(BlogResponse::from).toList());
-        // return random 5 blogs
-        int n = blogs.size();
-        for (int i = n - 1; i > 0; i--) {
-            int j = (int) (Math.random() * (i + 1));
-            BlogResponse temp = blogs.get(i);
-            blogs.set(i, blogs.get(j));
-            blogs.set(j, temp);
-        }
-        return blogs.subList(0, 4);
+    public List<BlogResponse> getRandomBlogs(int limit) {
+        return blogRepo.findRandomBlogs(limit);
     }
 
     public static String toSlug(String input) {

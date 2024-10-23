@@ -4,7 +4,7 @@ import Loading from "./components/common/loading/Loading";
 import { ToastProvider } from "./components/ui/toast/ToastContext";
 
 const Activity = lazy(() => import("./pages/Activity"));
-const Events = lazy(() => import("./pages/events"));
+const Events = lazy(() => import("./pages/Events"));
 const Notification = lazy(() => import("./pages/Notification"));
 const Blog = lazy(() => import("./pages/Blog"));
 const Layout = lazy(() => import("./components/layout/Layout"));

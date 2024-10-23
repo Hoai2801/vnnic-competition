@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 @Data
 @Builder
 @NoArgsConstructor
@@ -16,7 +18,7 @@ public class BlogResponse {
     private String category;
     private String excerpt;
     private String slug;
-    private String date;
+    private LocalDate date;
     private String coverImage;
     
     public static BlogResponse from(Blog blog) {
@@ -26,7 +28,7 @@ public class BlogResponse {
                 .category(blog.getCategory().getName())
                 .excerpt(blog.getExcerpt())
                 .slug(blog.getSlug())
-                .date(blog.getCreatedAt().toString())
+                .date(blog.getCreatedAt())
                 .coverImage(blog.getCoverImage())
                 .build();
     }
