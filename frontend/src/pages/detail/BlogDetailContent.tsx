@@ -1,18 +1,10 @@
 import React, { useEffect, useState } from "react";
 import avatar from "../../assets/doan.png";
 import "./BlogDetailContent.css"
-import { useLocation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import CommentPost from "../../components/comments/CommentPost";
+import Post from "../../components/models/Post";
 
-interface Blog {
-  id: number;
-  title: string;
-  category: string;
-  excerpt: string;
-  slug: string;
-  date: string;
-  coverImage: string;
-  content: string;
-}
 const BlogDetailContent = () => {
   // const [blog, setBlog] = useState<Blog>({
   //   "id": 13,
@@ -25,7 +17,7 @@ const BlogDetailContent = () => {
   //   "coverImage": "1729418803561_Screenshot from 2024-10-17 13-53-21.png"
   // });
 
-  const [blog, setBlog] = useState<Blog>();
+  const [blog, setBlog] = useState<Post>();
   const slug = useParams()?.slug;
 
   useEffect(() => {
@@ -68,6 +60,7 @@ const BlogDetailContent = () => {
             ></div>
           </div>
         </article>
+        <CommentPost />
       </div>
     </>
   );

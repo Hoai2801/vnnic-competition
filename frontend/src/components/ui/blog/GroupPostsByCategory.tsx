@@ -1,17 +1,8 @@
 import React, { useState } from "react";
-import SkeletonImage from "./../skeleton/SkeletonImage";
 import BlogThumbnailRowLayout from "./BlogThumbnailRowLayout";
 import BlogThumbnailColumnLayout from "./BlogThumbnailColumnLayout";
+import Post from "../../models/Post";
 
-interface Post {
-  id: number;
-  title: string;
-  category: string;
-  excerpt: string;
-  slug: string;
-  date: string;
-  coverImage: string;
-}
 const GroupPostsByCategory = ( {header, posts} : {header: string, posts: Post[]}) => {
   // const [posts, setPosts] = useState<Post[]>([
   //   {

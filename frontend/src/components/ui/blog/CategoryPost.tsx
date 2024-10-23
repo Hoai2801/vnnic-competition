@@ -1,19 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import SkeletonImage from "../skeleton/SkeletonImage";
+import Post from "../../models/Post";
 
 interface Props {
   header: string;
-}
-
-interface Post {
-  id: number;
-  title: string;
-  category: string;
-  excerpt: string;
-  slug: string;
-  date: string;
-  coverImage: string;
 }
 
 export default function CategoryPost({ header, posts }: { header: string, posts: Post[] }) {
@@ -98,6 +89,7 @@ export default function CategoryPost({ header, posts }: { header: string, posts:
           </Link>
         ))}
       </div>
-    </>
+
+    </div>
   );
 }

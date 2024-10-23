@@ -1,15 +1,6 @@
 import React, { useState } from "react";
 import SkeletonImage from "./skeleton/SkeletonImage";
-
-interface Post {
-  id: number;
-  title: string;
-  category: string;
-  excerpt: string;
-  slug: string;
-  date: string;
-  coverImage: string;
-}
+import Post from "../models/Post";
 
 export default function PostTemplate() {
   const [posts, setPosts] = useState<Post[]>([
