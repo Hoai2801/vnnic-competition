@@ -12,7 +12,6 @@ export default {
         dark: "#181818",
       },
       fontFamily: {
-        canopee: ["Canopee", "sans-serif"],
         neue: ["NeueMontreal", "sans-serif"],
       },
     },

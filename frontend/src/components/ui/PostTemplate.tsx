@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
-import SkeletonImage from "./skeleton/SkeletonImage";
+import React from "react";
 import Post from "../models/Post";
+import SkeletonImage from "../skeleton/SkeletonImage";
 
-export default function PostTemplate({posts}: {posts: Post[]}) {
-
+export default function PostTemplate({ posts }: { posts: Post[] }) {
   return (
     <div className="flex w-full flex-col gap-8">
       {posts?.length < 8 ? (

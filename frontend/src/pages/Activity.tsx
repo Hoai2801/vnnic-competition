@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
+import Post from "../components/models/Post";
 import PostTemplate from "../components/ui/PostTemplate";
 import Transition from "./../components/common/Transition";
-import Post from "../components/models/Post";
 
 export default function Activity() {
   const [posts, setPosts] = useState<Post[]>([]);

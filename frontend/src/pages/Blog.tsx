@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Transition from "../components/common/Transition";
-import PostTemplate from "../components/ui/PostTemplate";
 import Post from "../components/models/Post";
+import PostTemplate from "../components/ui/PostTemplate";
 
 function Blog() {
   const [posts, setPosts] = useState<Post[]>([]);
@@ -10,7 +10,7 @@ function Blog() {
     fetch("http://localhost:8080/blog/category/1")
       .then((response) => response.json())
       .then((data) => {
-        setPosts(data)
+        setPosts(data);
       });
   }, []);
   return (

@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
+import Post from "../models/Post";
 import BlogThumbnailRowLayout from "./BlogThumbnailRowLayout";
-import Post from "../../models/Post";
 
 const RelatedPosts = () => {
   const [posts, setPosts] = useState<Post[]>();
 
   useEffect(() => {
-    fetch('http://localhost:8080/blog/random')
+    fetch("http://localhost:8080/blog/random")
       .then((response) => response.json())
       .then((data) => {
-        setPosts(data)
-      })
-  }, [])
+        setPosts(data);
+      });
+  }, []);
   return (
     <div className={`sticky top-32 rounded-2xl bg-white p-4 dark:bg-gray-700`}>
       <h2

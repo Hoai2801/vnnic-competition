@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Transition from "../components/common/Transition";
-import PostTemplate from "../components/ui/PostTemplate";
 import Post from "../components/models/Post";
+import PostTemplate from "../components/ui/PostTemplate";
 
 function Events() {
   const [posts, setPosts] = useState<Post[]>([]);

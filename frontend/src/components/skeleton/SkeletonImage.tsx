@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import React, { useState } from "react";
-import { cn } from "./../../lib/utils";
+import { cn } from "./../lib/utils";
 import styles from "./SkeletonImage.module.css";
 
 interface SkeletonImageProps {

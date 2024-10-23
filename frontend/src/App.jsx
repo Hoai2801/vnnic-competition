@@ -1,7 +1,7 @@
 import { lazy, Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Loading from "./components/common/loading/Loading";
-import { ToastProvider } from "./components/ui/toast/ToastContext";
+import { ToastProvider } from "./components/toast/ToastContext";
 
 const Activity = lazy(() => import("./pages/Activity"));
 const Events = lazy(() => import("./pages/Events"));

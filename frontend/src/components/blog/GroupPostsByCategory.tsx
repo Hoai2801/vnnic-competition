@@ -1,9 +1,15 @@
-import React, { useState } from "react";
-import BlogThumbnailRowLayout from "./BlogThumbnailRowLayout";
+import React from "react";
+import Post from "../models/Post";
 import BlogThumbnailColumnLayout from "./BlogThumbnailColumnLayout";
-import Post from "../../models/Post";
+import BlogThumbnailRowLayout from "./BlogThumbnailRowLayout";
 
-const GroupPostsByCategory = ( {header, posts} : {header: string, posts: Post[]}) => {
+const GroupPostsByCategory = ({
+  header,
+  posts,
+}: {
+  header: string;
+  posts: Post[];
+}) => {
   // const [posts, setPosts] = useState<Post[]>([
   //   {
   //     "id": 8,

@@ -1,8 +1,8 @@
 import React from "react";
 import Transition from "../../components/common/Transition";
+import { useToast } from "../../components/toast/ToastContext";
 import Anchor from "../../components/ui/anchor/Anchor";
 import BackButton from "../../components/ui/BackButton";
-import { useToast } from "../../components/ui/toast/ToastContext";
 
 const Login = () => {
   const { addToast } = useToast();

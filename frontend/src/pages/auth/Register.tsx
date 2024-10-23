@@ -1,7 +1,7 @@
 import React from "react";
 import Transition from "../../components/common/Transition";
+import { useToast } from "../../components/toast/ToastContext";
 import BackButton from "../../components/ui/BackButton";
-import { useToast } from "../../components/ui/toast/ToastContext";
 import Anchor from "./../../components/ui/anchor/Anchor";
 
 const Register = () => {

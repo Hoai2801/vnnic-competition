@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
+import BlogThumbnailRowLayout from "../../components/blog/BlogThumbnailRowLayout";
+import RelatedPosts from "../../components/blog/RelatedPosts";
 import Post from "../../components/models/Post";
-import BlogThumbnailRowLayout from "../../components/ui/blog/BlogThumbnailRowLayout";
-import RelatedPosts from "../../components/ui/blog/RelatedPosts";
 import BlogDetailContent from "./BlogDetailContent";
 
 const BlogLayout = () => {
