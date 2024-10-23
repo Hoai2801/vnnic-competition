@@ -1,5 +1,5 @@
-import cn from "classnames";
 import React from "react";
+import { cn } from "./../../lib/utils";
 import styles from "./Anchor.module.css";
 
 type AnchorProps = {

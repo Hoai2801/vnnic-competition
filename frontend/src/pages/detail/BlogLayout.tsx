@@ -1,21 +1,20 @@
 import React, { useEffect, useState } from "react";
+import Post from "../../components/models/Post";
+import BlogThumbnailRowLayout from "../../components/ui/blog/BlogThumbnailRowLayout";
 import RelatedPosts from "../../components/ui/blog/RelatedPosts";
 import BlogDetailContent from "./BlogDetailContent";
-import Post from "../../components/models/Post";
-import BlogThumbnailColumnLayout from "../../components/ui/blog/BlogThumbnailColumnLayout";
-import BlogThumbnailRowLayout from "../../components/ui/blog/BlogThumbnailRowLayout";
 
 const BlogLayout = () => {
   const [posts, setPosts] = useState<Post[]>();
 
   useEffect(() => {
-    fetch('http://localhost:8080/blog/random?limit=8')
+    fetch("http://localhost:8080/blog/random?limit=8")
       .then((response) => response.json())
       .then((data) => {
-        console.log(data)
-        setPosts(data)
-      })
-  }, [])
+        console.log(data);
+        setPosts(data);
+      });
+  }, []);
   return (
     <div className={`container flex grid-cols-3 flex-col gap-4 px-4 lg:grid`}>
       <div className={`col-span-2`}>
@@ -71,7 +70,7 @@ const BlogLayout = () => {
         </div>
         <section className="py-4">
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-            <h2 className="font-manrope mb-6 text-center text-2xl font-bold text-gray-900">
+            <h2 className="mb-6 text-center text-2xl font-bold text-gray-900 dark:text-white">
               Bài viết có thể bạn quan tâm
             </h2>
             {posts?.map((post) => (

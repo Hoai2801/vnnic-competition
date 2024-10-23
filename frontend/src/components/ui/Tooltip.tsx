@@ -1,6 +1,6 @@
-import cn from "classnames";
 import { AnimatePresence, motion } from "framer-motion";
 import React, { useState } from "react";
+import { cn } from "../lib/utils";
 
 interface TooltipProps {
   direction:
