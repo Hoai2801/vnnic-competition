@@ -1,3 +1,4 @@
+import cn from "classnames";
 import React from "react";
 import styles from "./Anchor.module.css";
 
@@ -23,7 +24,7 @@ const Anchor: React.FC<AnchorProps> = ({
       rel="noreferrer noopener"
       target={newtab ? "_blank" : "_self"}
       // thêm class after:bg-[] set màu underline
-      className={`${styles.links} ${classNames} relative inline-block`}
+      className={cn("relative inline-block", classNames, styles.links)}
     >
       {text}
     </a>

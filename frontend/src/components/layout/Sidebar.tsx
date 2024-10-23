@@ -77,7 +77,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
                   </NavLink>
                 ))}
               </div>
-              <div className="absolute bottom-6 w-52 border-t border-black bg-white pr-4 pt-4 dark:bg-dark">
+              <div className="absolute bottom-6 w-52 border-t border-black bg-white pr-4 pt-4 dark:border-gray-500 dark:bg-dark">
                 <Link to="/login" onClick={() => onClose()}>
                   Login
                 </Link>

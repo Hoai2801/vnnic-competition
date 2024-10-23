@@ -1,3 +1,4 @@
+import cn from "classnames";
 import { motion } from "framer-motion";
 import React, { useState } from "react";
 import styles from "./SkeletonImage.module.css";
@@ -26,7 +27,7 @@ export default function SkeletonImage({
 
   return (
     <div
-      className={`${pulsing ? styles.pulse : ""} ${styles.loadable}`}
+      className={cn(styles.loadable, pulsing ? styles.pulse : "")}
       style={{ width: width, background: "#ccc" }}
     >
       <motion.img
