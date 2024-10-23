@@ -3,6 +3,9 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Loading from "./components/common/loading/Loading";
 import { ToastProvider } from "./components/ui/toast/ToastContext";
 
+const Activity = lazy(() => import("./pages/Activity"));
+const Events = lazy(() => import("./pages/events"));
+const Notification = lazy(() => import("./pages/Notification"));
 const Blog = lazy(() => import("./pages/Blog"));
 const Layout = lazy(() => import("./components/layout/Layout"));
 const AdminLayout = lazy(() => import("./pages/admin/AdminLayout"));
@@ -41,6 +44,30 @@ export default function App() {
       element: (
         <Layout>
           <Blog />
+        </Layout>
+      ),
+    },
+    {
+      path: "/events",
+      element: (
+        <Layout>
+          <Events />
+        </Layout>
+      ),
+    },
+    {
+      path: "/activity",
+      element: (
+        <Layout>
+          <Activity />
+        </Layout>
+      ),
+    },
+    {
+      path: "/notification",
+      element: (
+        <Layout>
+          <Notification />
         </Layout>
       ),
     },
