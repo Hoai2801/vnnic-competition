@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import SkeletonImage from "../skeleton/SkeletonImage";
 
@@ -16,7 +16,13 @@ interface Post {
   coverImage: string;
 }
 
-export default function CategoryPost({ header, posts }: { header: string, posts: Post[] }) {
+export default function CategoryPost({
+  header,
+  posts,
+}: {
+  header: string;
+  posts: Post[];
+}) {
   // const [posts, setPosts] = useState<Post[]>([
   //   {
   //     id: 0,
@@ -74,7 +80,11 @@ export default function CategoryPost({ header, posts }: { header: string, posts:
       </div>
       <div className="flex grid-cols-2 flex-col gap-8 md:grid lg:grid-cols-4">
         {posts.map((post) => (
-          <Link to={`/article/${post.slug}`} key={post.id} className="flex flex-col gap-4">
+          <Link
+            to={`/article/${post.slug}`}
+            key={post.id}
+            className="flex flex-col gap-4"
+          >
             <SkeletonImage
               height="200px"
               src={post.coverImage}
@@ -98,6 +108,6 @@ export default function CategoryPost({ header, posts }: { header: string, posts:
           </Link>
         ))}
       </div>
-    </>
+    </div>
   );
 }

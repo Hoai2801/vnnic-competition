@@ -1,7 +1,6 @@
-import React, { useState } from "react";
-import SkeletonImage from "./../skeleton/SkeletonImage";
-import BlogThumbnailRowLayout from "./BlogThumbnailRowLayout";
+import React from "react";
 import BlogThumbnailColumnLayout from "./BlogThumbnailColumnLayout";
+import BlogThumbnailRowLayout from "./BlogThumbnailRowLayout";
 
 interface Post {
   id: number;
@@ -12,7 +11,13 @@ interface Post {
   date: string;
   coverImage: string;
 }
-const GroupPostsByCategory = ( {header, posts} : {header: string, posts: Post[]}) => {
+const GroupPostsByCategory = ({
+  header,
+  posts,
+}: {
+  header: string;
+  posts: Post[];
+}) => {
   // const [posts, setPosts] = useState<Post[]>([
   //   {
   //     "id": 8,
