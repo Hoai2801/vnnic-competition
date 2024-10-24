@@ -61,7 +61,7 @@ const Tooltip: React.FC<TooltipProps> = ({
           <motion.div
             id="tooltip"
             role="tooltip"
-            className="pointer-events-none absolute z-10 mt-1 whitespace-nowrap rounded-sm bg-black/75 p-1 text-sm text-white dark:bg-white/75 dark:text-gray-900"
+            className="pointer-events-none absolute z-10 mt-1 whitespace-nowrap rounded-sm bg-black/75 p-1 text-sm text-white transition-colors dark:bg-white/75 dark:text-gray-900"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}

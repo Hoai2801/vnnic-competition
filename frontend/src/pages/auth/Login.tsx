@@ -1,7 +1,7 @@
 import React from "react";
+import Anchor from "../../components/anchor/Anchor";
 import Transition from "../../components/common/Transition";
 import { useToast } from "../../components/toast/ToastContext";
-import Anchor from "../../components/ui/anchor/Anchor";
 import BackButton from "../../components/ui/BackButton";
 
 const Login = () => {
