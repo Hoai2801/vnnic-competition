@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import React from "react";
+import { cn } from "../lib/utils";
 
 interface ToastProps {
   message: string;
@@ -33,7 +34,7 @@ const Toast: React.FC<ToastProps> = ({ message, type = "info", onClose }) => {
       exit="exit"
       transition={{ duration: 0.3 }}
       variants={variants}
-      className={`toast rounded p-2 sm:p-4 ${getTypeStyles()}`}
+      className={cn("toast rounded p-2 sm:p-4", getTypeStyles())}
     >
       <div className="flex items-center justify-between text-sm sm:text-base">
         <span>{message}</span>

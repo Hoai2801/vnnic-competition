@@ -37,10 +37,8 @@ export default function BackToTop() {
             animate="enter"
             exit="exit"
             transition={{
-              duration: 0.3,
               type: "spring",
-              stiffness: 100,
-              damping: 10,
+              duration: 0.3,
             }}
             variants={variants}
             className="fixed bottom-3 right-3 z-10 cursor-pointer rounded-full border border-white p-1.5 mix-blend-difference transition-colors"

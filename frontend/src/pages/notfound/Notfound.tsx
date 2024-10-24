@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Transition from "../../components/common/Transition";
+import { cn } from "../../components/lib/utils";
 import BackButton from "../../components/ui/BackButton";
 import styles from "./Notfound.module.css";
 
@@ -13,10 +14,13 @@ export default function Notfound() {
           id="error-page"
         >
           <div
-            className={`${styles.content} content max-w-[600px] text-center`}
+            className={cn("content max-w-[600px] text-center", styles.content)}
           >
             <h2
-              className={`${styles.header} relative mb-4 max-w-[600px] text-[120px] font-bold leading-[1em] after:absolute after:left-0 after:right-0 after:top-0 sm:text-[160px]`}
+              className={cn(
+                "relative mb-4 max-w-[600px] text-[120px] font-bold leading-[1em] after:absolute after:left-0 after:right-0 after:top-0 sm:text-[160px]",
+                styles.header,
+              )}
               data-text="404"
             >
               404

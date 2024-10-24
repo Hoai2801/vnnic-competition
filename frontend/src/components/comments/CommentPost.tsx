@@ -16,7 +16,7 @@ const CommentPost = () => {
             </label>
             <textarea
               id="comment"
-              rows="6"
+              rows={6}
               className="w-full border-0 px-0 text-sm text-gray-900 focus:outline-none focus:ring-0 dark:bg-gray-800 dark:text-white dark:placeholder-gray-400"
               placeholder="Write a comment..."
               required
@@ -41,7 +41,7 @@ const CommentPost = () => {
                 Michael Gough
               </p>
               <p className="text-sm text-gray-600 dark:text-gray-400">
-                <time pubdate dateTime="2022-02-08" title="February 8th, 2022">
+                <time dateTime="2022-02-08" title="February 8th, 2022">
                   Feb. 8, 2022
                 </time>
               </p>
@@ -141,7 +141,7 @@ const CommentPost = () => {
                 Jese Leos
               </p>
               <p className="text-sm text-gray-600 dark:text-gray-400">
-                <time pubdate dateTime="2022-02-12" title="February 12th, 2022">
+                <time dateTime="2022-02-12" title="February 12th, 2022">
                   Feb. 12, 2022
                 </time>
               </p>
@@ -238,7 +238,7 @@ const CommentPost = () => {
                 Bonnie Green
               </p>
               <p className="text-sm text-gray-600 dark:text-gray-400">
-                <time pubdate dateTime="2022-03-12" title="March 12th, 2022">
+                <time dateTime="2022-03-12" title="March 12th, 2022">
                   Mar. 12, 2022
                 </time>
               </p>
@@ -336,7 +336,7 @@ const CommentPost = () => {
                 Helene Engels
               </p>
               <p className="text-sm text-gray-600 dark:text-gray-400">
-                <time pubdate dateTime="2022-06-23" title="June 23rd, 2022">
+                <time dateTime="2022-06-23" title="June 23rd, 2022">
                   Jun. 23, 2022
                 </time>
               </p>

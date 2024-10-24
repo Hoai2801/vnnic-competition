@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import avatar from "../../assets/doan.png";
-import "./BlogDetailContent.css"
 import { useParams } from "react-router-dom";
+import avatar from "../../assets/doan.webp";
 import CommentPost from "../../components/comments/CommentPost";
 import Post from "../../components/models/Post";
+import "./BlogDetailContent.css";
 
 const BlogDetailContent = () => {
   // const [blog, setBlog] = useState<Blog>({
@@ -26,7 +26,7 @@ const BlogDetailContent = () => {
       .then((data) => {
         setBlog(data);
       });
-  })
+  });
 
   return (
     <>
@@ -51,8 +51,10 @@ const BlogDetailContent = () => {
             </div>
           </div>
           <div className="flex flex-col gap-4 dark:text-gray-800">
-            <h3 className={`text-xl font-semibold text-justify dark:text-white sm:text-xl`} >
-              {blog?.excerpt }
+            <h3
+              className={`text-justify text-xl font-semibold dark:text-white sm:text-xl`}
+            >
+              {blog?.excerpt}
             </h3>
             <div
               className={`text-justify text-lg dark:text-white`}
