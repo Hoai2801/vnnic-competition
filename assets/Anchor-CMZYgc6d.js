@@ -1,0 +1,1 @@
+import{j as o}from"./index-BHTBgdv3.js";const t="_links_1cgkr_1",a={links:t},k=({href:s,text:r,className:e,newtab:n=!1})=>{const c=e?` ${e}`:"",l=s?`${s}`:"javascript:void(0)";return o.jsx("a",{href:l,rel:"noreferrer noopener",target:n?"_blank":"_self",className:`${a.links} ${c} relative inline-block`,children:r})};export{k as A};

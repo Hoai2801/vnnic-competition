@@ -1,0 +1,1 @@
+import{t as r,n as i,j as u}from"./index-BHTBgdv3.js";const x=({text:t,className:s})=>{const o=s?`${s}`:"",n=t?`${t}`:"Trở về",e=r(),c=i(),a=()=>{c.key!=="default"?e(-1):e("/")};return u.jsx("button",{className:`${o} rounded-md px-3 py-2 text-white transition-colors`,onClick:a,children:n})};export{x as B};
