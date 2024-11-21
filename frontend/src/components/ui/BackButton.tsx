@@ -1,10 +1,11 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { cn } from "../lib/utils";
 
-type BackButtonProps = {
+interface BackButtonProps {
   text?: string;
   className?: string;
-};
+}
 
 const BackButton: React.FC<BackButtonProps> = ({
   text: additionalText,
@@ -23,7 +24,10 @@ const BackButton: React.FC<BackButtonProps> = ({
 
   return (
     <button
-      className={`${classNames} rounded-md px-3 py-2 text-white transition-colors`}
+      className={cn(
+        "rounded-md px-3 py-2 text-white transition-colors",
+        classNames,
+      )}
       onClick={handleBack}
     >
       {text}

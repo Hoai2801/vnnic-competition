@@ -3,12 +3,6 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "Canopee";
-  src: url("./assets/SVN-Canopee.otf") format("truetype");
-  font-weight: normal;
-}
-
-@font-face {
   font-family: "NeueMontreal";
   src: url("./assets/NeueMontreal-Regular.otf") format("truetype");
   font-weight: normal;

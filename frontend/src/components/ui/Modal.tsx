@@ -30,11 +30,13 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
                 initial={{ scale: 0.5 }}
                 animate={{ scale: 1 }}
                 exit={{ scale: 0.8 }}
-                className="relative flex items-center justify-center rounded bg-white p-6 shadow-lg"
+                drag
+                dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
+                className="relative mx-4 flex cursor-move items-center justify-center rounded border border-gray-500 bg-white p-6 shadow-lg dark:bg-dark"
               >
                 <button
                   onClick={onClose}
-                  className="absolute -top-1.5 right-1 text-2xl sm:text-3xl"
+                  className="absolute -top-2 right-1 text-4xl dark:text-white"
                 >
                   &times;
                 </button>

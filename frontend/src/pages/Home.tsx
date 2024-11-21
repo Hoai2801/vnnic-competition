@@ -1,39 +1,49 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import CategoryPost from "../components/blog/CategoryPost";
+import GroupPostsByCategory from "../components/blog/GroupPostsByCategory";
 import Transition from "../components/common/Transition";
-import Modal from "../components/ui/Modal";
 
 export default function Home() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [latestArticles, setLatestArticles] = useState([]);
+  const [notifications, setNotifications] = useState([]);
+  const [events, setEvents] = useState([]);
+  const [activity, setActivity] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:8080/blog/latest")
+      .then((response) => response.json())
+      .then((data) => {
+        setLatestArticles(data);
+      });
 
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
+    fetch("http://localhost:8080/blog/category/3")
+      .then((response) => response.json())
+      .then((data) => {
+        setNotifications(data);
+      });
 
+    fetch("http://localhost:8080/blog/category/2")
+      .then((response) => response.json())
+      .then((data) => {
+        setEvents(data);
+      });
+
+    fetch("http://localhost:8080/blog/category/4")
+      .then((response) => response.json())
+      .then((data) => {
+        setActivity(data);
+      });
+  }, []);
   return (
     <Transition>
-      <section className="flex flex-col py-2">
-        <div className="flex grid-cols-2 grid-rows-2 flex-col gap-2 sm:grid lg:grid-cols-8">
-          <div className="col-span-4 row-span-2">
-            <h1 className="text-3xl font-bold">Welcome to React</h1>
-            <p>
-              React is a JavaScript library for building user interfaces. It is
-              maintained by Facebook and a community of individual developers.
-              React can be used as a base in the development of single-page or
-              mobile applications.
-            </p>
-          </div>
-          <div className="col-span-2">1</div>
-          <div className="col-span-2">2</div>
-          <div className="col-span-4">3</div>
+      <div className="flex min-h-screen w-full flex-col items-center justify-center gap-4">
+        <div className="container px-4 py-2">
+          <GroupPostsByCategory header="Tin mới" posts={latestArticles} />
+          <CategoryPost header="Thông báo" posts={notifications} />
         </div>
-      </section>
-      <div>
-        <button onClick={openModal}>Open Modal</button>
-        <Modal isOpen={isModalOpen} onClose={closeModal}>
-          <div>
-            <h2>Modal Title</h2>
-            <p>This is the modal content.</p>
-          </div>
-        </Modal>
+        <div className="container px-4 py-2">
+          <GroupPostsByCategory header="Hoạt động Đoàn" posts={activity} />
+          <CategoryPost header="Sự kiện" posts={events} />
+        </div>
       </div>
     </Transition>
   );

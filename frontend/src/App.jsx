@@ -1,22 +1,28 @@
-import { lazy, Suspense, useEffect } from "react";
-import { Route, Routes, useLocation } from "react-router-dom";
+import { lazy, Suspense } from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Loading from "./components/common/loading/Loading";
-import Layout from "./components/layout/Layout";
-import { ToastProvider } from "./components/ui/ToastContext";
+import { ToastProvider } from "./components/toast/ToastContext";
 
+const Activity = lazy(() => import("./pages/Activity"));
+const Events = lazy(() => import("./pages/Events"));
+const Notification = lazy(() => import("./pages/Notification"));
+const Blog = lazy(() => import("./pages/Blog"));
+const Layout = lazy(() => import("./components/layout/Layout"));
+const AdminLayout = lazy(() => import("./pages/admin/AdminLayout"));
+const UploadBlog = lazy(() => import("./pages/admin/UploadBlog"));
+const BlogLayout = lazy(() => import("./pages/detail/BlogLayout"));
 const Home = lazy(() => import("./pages/Home"));
 const Notfound = lazy(() => import("./pages/notfound/Notfound"));
 const Login = lazy(() => import("./pages/auth/Login"));
 const Register = lazy(() => import("./pages/auth/Register"));
 
 export default function App() {
-  const location = useLocation();
+  (function () {
+    const savedTheme = localStorage.getItem("theme") || "light";
+    document.documentElement.classList.add(savedTheme);
+  })();
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [location.pathname]);
-
-  const routerItem = [
+  const router = createBrowserRouter([
     {
       path: "/",
       element: (
@@ -34,19 +40,65 @@ export default function App() {
       element: <Register />,
     },
     {
+      path: "/news",
+      element: (
+        <Layout>
+          <Blog />
+        </Layout>
+      ),
+    },
+    {
+      path: "/events",
+      element: (
+        <Layout>
+          <Events />
+        </Layout>
+      ),
+    },
+    {
+      path: "/activity",
+      element: (
+        <Layout>
+          <Activity />
+        </Layout>
+      ),
+    },
+    {
+      path: "/notification",
+      element: (
+        <Layout>
+          <Notification />
+        </Layout>
+      ),
+    },
+    {
+      path: "/article/:slug",
+      element: (
+        <Layout>
+          <BlogLayout />
+        </Layout>
+      ),
+    },
+    {
+      path: "/admin",
+      element: <AdminLayout />,
+      children: [
+        {
+          path: "upload",
+          element: <UploadBlog />,
+        },
+      ],
+    },
+    {
       path: "*",
       element: <Notfound />,
     },
-  ];
+  ]);
 
   return (
     <ToastProvider>
       <Suspense fallback={<Loading />}>
-        <Routes location={location} key={location.pathname}>
-          {routerItem.map((route) => (
-            <Route key={route.path} path={route.path} element={route.element} />
-          ))}
-        </Routes>
+        <RouterProvider router={router}></RouterProvider>
       </Suspense>
     </ToastProvider>
   );
